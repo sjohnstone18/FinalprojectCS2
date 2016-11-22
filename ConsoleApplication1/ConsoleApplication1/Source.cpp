@@ -2,9 +2,9 @@
 
 //
 //  Program Name: finalproject
-//  Names: Samuel Johnstone, Josh Miller, Jacob Brook
-//  Class & Section: CS171 & Sec 3
-//  Date: 12/17/15
+//  Names: Samuel Johnstone, Ian Fisher
+//  Class & Section: CS172
+//  Date: 11/21/16
 //
 
 #include <iostream>
