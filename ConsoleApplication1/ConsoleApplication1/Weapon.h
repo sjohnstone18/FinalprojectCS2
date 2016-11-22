@@ -2,8 +2,6 @@
 #ifndef Weapon_h
 #define Weapon.h
 
-#include <iostream>
-using namespace std;
 
 class weapon {
 public:
