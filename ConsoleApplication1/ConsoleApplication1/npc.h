@@ -3,8 +3,11 @@
 #define npc.h
 
 class NPC {
+public:
 	int xPos, yPos;
 	int health;
+	// Monster //
+
 
 
 
