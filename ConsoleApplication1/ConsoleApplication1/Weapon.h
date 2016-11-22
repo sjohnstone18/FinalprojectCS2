@@ -1,7 +1,7 @@
 #pragma once
 #ifndef Weapon_h
 #define Weapon.h
-
+#include "npc.h"
 
 
 class weapon {

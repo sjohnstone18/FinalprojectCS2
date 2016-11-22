@@ -11,71 +11,28 @@
 #include <string>
 #include <iomanip>
 #include <stdlib.h>
+#include "Character.h"
 using namespace std;
 
-int command();
+void command();
 void canMove(int& n);
-void map(int y, int x);
-void lookAround(int x, int y);
+void map(Character* me);
+void lookAround(Character* me);
 void talk(int x, int y);
 int get(int x, int  y);
 int kill(int x, int y);
-
+Character me;
 static int inventory = 0;
 
 int main() {
+	while (1 == 1) {
 
-	cout << "Available commands: commands, map, look, north, south, east, west, talk, get, kill" << endl;
-	while (inventory < 4) {
+		cout << "Available commands: commands, map, look, north, south, east, west, talk, get, kill" << endl;
 		command();
 	}
-	system("CLS");
-	cout << setw(30) << "Game over. You win.\n" << endl;
-
 	return 0;
 }
-int command() {
-	string command;
-	static int x = 2, y = 2;
-	
-	cin >> command;
-	if (command == "map") {
-		map(x, y);
-	}
-	else if (command == "north") {
-		y = y - 1;
-		canMove(y);
-	}
-	else if (command == "south") {
-		y = y + 1;
-		canMove(y);
-	}
-	else if (command == "east") {
-		x = x + 1;
-		canMove(x);
-	}
-	else if (command == "west") {
-		x = x - 1;
-		canMove(x);
-	}
-	else if (command == "commands") {
-		cout << "Available commands: commands, map, look, north, south, east, west, talk, get, kill" << endl;
-	}
-	else if (command == "look") {
-		lookAround(x, y);
-	}
-	else if (command == "talk") {
-		talk(x, y);
-	}
-	else if (command == "get") {
-		get(x, y);
-	}
-	else if (command == "kill") {
-		kill(x, y);
-	}
 
-	return 0;
-}
 void canMove(int& n) {
 	if (n < 0) {
 		cout << "It appears you have reached the border of your map. For fear of what uncharted lands lay before you, you decide to turn around." << endl;
@@ -86,27 +43,13 @@ void canMove(int& n) {
 		n--;
 	}
 }
-void lookAround(int x, int y) {
-	if (x == 2 && y == 2) {
-		cout << "Its a old, run-down shack, in the middle of the desert. There are a few bushes laying around. You see a note on the ground, it says in poorly written handwriting, \" come see Gorlax 2 da west \"\n";
-	}
-	else if (x == 4 && y == 4) {
-		if (inventory == 3) {
-			cout << "You hear scary gurgling noises coming from a scary cave, and Gorlax the Crapper runs out! He transforms into a giant monster right before your eyes!" << endl;
-		}
-		else {
-			cout << "You see a cave.  It looks scary.  You should stay away.\n";
-		}
-	}
-	else if (x == 0 && y == 2) {
-		cout << "Gorlax The Crapper is hanging out.  He's on his porch." << endl;
-		if (inventory == 0) {
-			cout << "He says \"Hey there! I got a job for you!\"\n";
-		}
-	}
-	else if (x == 4 && y == 1) {
-		cout << "You see a chest underneath a small tree." << endl;
-	}
+void lookAround(Character* me) {
+	if (me->getxPos() == 2 && me->getyPos() == 2)
+		cout << "you are in a small shack\n";
+
+
+
+
 }
 int kill(int x, int y) {
 	if (x == 4 && y == 4 && inventory == 3) {
@@ -115,21 +58,18 @@ int kill(int x, int y) {
 
 	return 0;
 }
-void map(int y, int x) {
+void map(Character* me) {
 	string mapArr[5][5];
 
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
 			mapArr[i][j] = "[ ]";
-			mapArr[x][y] = "[X]";
-		}
-	}
-	for (int k = 0; k < 5; k++) {
-		for (int l = 0; l < 5; l++) {
-			cout << mapArr[k][l];
+			mapArr[me->getxPos()][me->getyPos()] = "[X]";
+			cout << mapArr[i][j];
 		}
 		cout << endl;
 	}
+	
 }
 void talk(int x, int y) {
 	if (x == 0 && y == 2) {
@@ -158,4 +98,42 @@ int get(int x, int y) {
 	}
 
 	return inventory;
+}
+
+
+void command() {
+	string command;
+	cin >> command;
+
+	if (command == "map") {
+		map(&me);
+	}
+	else if (command == "north") {
+		me.moveNorth();
+	}
+	else if (command == "south") {
+		me.moveSouth();
+	}
+	else if (command == "east") {
+		me.moveEast();
+	}
+	else if (command == "west") {
+		me.moveWest();
+	}
+	else if (command == "commands") {
+		cout << "Available commands: commands, map, look, north, south, east, west, talk, get, kill" << endl;
+	}
+	else if (command == "look") {
+		lookAround(&me);
+	}
+	else if (command == "talk") {
+		// talk(x, y);
+	}
+	else if (command == "get") {
+		//get(x, y);
+	}
+	else if (command == "kill") {
+		//kill(x, y);
+	}
+
 }
