@@ -1,12 +1,17 @@
+#include <iostream>
 #include "Character.h"
+using namespace std;
 
-
-Character::Character() {
+void Character::render() {
+	cout << "#";
+}
+	
+/*
 	xPos = 2;
 	yPos = 2;
 	health = 100;
 
-
+	
 
 }
 
@@ -32,3 +37,4 @@ int Character::getxPos() {
 int Character::getyPos() {
 	return yPos;
 }
+*/

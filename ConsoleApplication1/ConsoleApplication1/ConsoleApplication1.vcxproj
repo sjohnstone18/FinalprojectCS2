@@ -147,12 +147,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MazeMap.cpp" />
     <ClCompile Include="npc.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="MapItem.h" />
+    <ClInclude Include="MazeMap.h" />
     <ClInclude Include="npc.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
