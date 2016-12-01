@@ -1,12 +1,12 @@
 #pragma once
 #ifndef Weapon_h
-#define Weapon.h
+#define Weapon_h
 
 
 class weapon {
 public:
 	weapon(int attack, int pierce, int armor);
-	void attack(NPC* c);
+	//void attack(NPC* c);
 	void defend();
 
 	// attack functions
@@ -22,7 +22,7 @@ public:
 
 private:
 	int armor;
-	int attack;
+//	int attack;
 	int pierce;
 	int endurance;
 
