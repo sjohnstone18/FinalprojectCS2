@@ -1,35 +1,81 @@
 #include <iostream>
 #include "MazeMap.h"
+#include "Character.h"
+#include "MapItem.h"
 using namespace std;
 
-MazeMap::MazeMap(string* initialMap, int numLines) {
+MazeMap::MazeMap(string* initialMaze, int numLines)
+{
+	this->mapHeight = numLines;
+	this->mapWidth = (int)initialMaze[0].length();
+	this->maze = new MapItem**[numLines];
+
+	for (int i = 0; i < this->mapHeight; i++)
+	{
+		//this->maze[i] = new MazeItem*[this->mapWidth];
+		for (int j = 0; j < this->mapWidth; j++)
+		{
+			maze[i][j] = NULL;
+		}
+	}
+
+	this->char_x = 0;
+	this->char_y = 0;
+	for (int i = 0; i < this->mapHeight; i++)
+	{
+		string line = initialMaze[i];
+		for (int j = 0; j < line.length(); j++)
+		{
+			char c = line.at(j);
+
+			//Constructo the object for this location
+			//maze[i][j] = constructItemForChar(c);
+
+			//Check if this is the character and if
+			//it is then we need to track its position
+			if (maze[i][j] != NULL && typeid(*(maze[i][j])) == typeid(Character))
+			{
+				this->char_x = j;
+				this->char_y = i;
+			}
+		}
+	}
 
 }
+
 
 MazeMap::~MazeMap() {
 
 }
 
-void LeftMove() {
+void MazeMap::LeftMove() {
+	if (char_x > 0 && (maze[char_y][char_x - 1] == NULL || maze[char_y][char_x - 1]->passThru()))
+	{
+
+		MapItem* character = maze[char_y][char_x];
+		maze[char_y][char_x] = NULL;
+		char_x--;
+		maze[char_y][char_x] = character;
+	}
 
 }
 
-void RightMove() {
+void MazeMap::RightMove() {
 
 }
 
-void UpMove() {
+void MazeMap::UpMove() {
 
 }
 
-void DownMove() {
+void MazeMap::DownMove() {
 
 }
 
-void render() { // copied from Stephen-- we can improve this
+void MazeMap::render() { // copied from Stephen-- we can improve this
 	
 }
 
-void updateItemPositions() { // copied from Stephen-- lets try to ammend this
+void MazeMap::updateItemPositions() { // copied from Stephen-- lets try to ammend this
 
 }
