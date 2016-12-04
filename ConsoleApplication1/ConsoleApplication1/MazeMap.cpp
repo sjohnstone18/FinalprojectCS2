@@ -5,6 +5,7 @@
 #include "MapItem.h"
 #include "MapWall.h"
 #include "GroundItem.h"
+#include "Enemy.h"
 //#include "MazeWall"
 
 
@@ -96,7 +97,10 @@ MapItem* MazeMap::constructItemForChar(char c)
 	else if (c == '@')
 	{
 		return new GroundItem(2);
-
+	}
+	else if (c == '%')
+	{
+		return new Enemy();
 	}
 	return NULL;
 				
@@ -181,7 +185,7 @@ void MazeMap::render() { // copied from Stephen-- we can improve this
 }
 
 
-void MazeMap::updateItemPositions() { // copied from Stephen-- lets try to ammend this
+void MazeMap::updateItemPositions() {
 	{
 		for (int i = 0; i < this->mapHeight; i++)
 		{
