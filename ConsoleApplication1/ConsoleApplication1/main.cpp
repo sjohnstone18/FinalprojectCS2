@@ -34,7 +34,7 @@ char _getch() {
 #endif
 
 int main() {
-	const int SIDE = 40; // change based on size of map in horizontal direction
+	const int SIDE = 29; // change based on size of map in horizontal direction
 	// map could have secret walls?
 
 	// certain areas of map have monsters
@@ -49,7 +49,7 @@ int main() {
 
 	string initializeMap[SIDE] =
 	{
-					"WELCOME TO MERLOCK'S MANSION"
+		//			"WELCOME TO MERLOCK'S MANSION"
 		"--------------------------------------------------",
 		"|  #      |    |               |    |            |",
 		"|------   |          |-----|   |   --   |  |-----|",
@@ -72,45 +72,54 @@ int main() {
 		"|       |   !  |              |         |        |",
 		"--------------------------------------------------",
 	};
-
 	MazeMap* map = new MazeMap(initializeMap, SIDE);
 
 	bool done = false;
 	while (!done)
 	{
+		//Clear the old state of the maze
+#ifdef WINDOWS
+		system("cls");
+#else
+		system("clear");
+#endif
+
+
 		//Render the current state of the maze
 		map->render();
 
 		//Get the users next move
 		char move = _getch();
 
-
-		// put key inputs here?
-		if (move == 'w' || 'W') {
-
+		//update the characters position
+		if (move == 'w')
+		{
 			map->UpMove();
 		}
-		else if (move == 'a' || "A") {
+		else if (move == 'a')
+		{
 			map->LeftMove();
 		}
-
-		else if (move == 'd' || "D") {
-			map->RightMove();
-		}
-
-		else if (move == 's' || "S") {
+		else if (move == 's')
+		{
 			map->DownMove();
 		}
-
-		else if (move == 'z' || "Z") {
-			//  quit the program
+		else if (move == 'd')
+		{
+			map->RightMove();
+		}
+		else if (move == 'q')
+		{
 			done = true;
 		}
+
 		map->updateItemPositions();
 	}
 
+
 	delete map;
+
 	return 0;
-
-
 }
+
+

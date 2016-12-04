@@ -8,14 +8,14 @@ using namespace std;
 
 class MazeMap {
 private:
-	MapItem*** maze; // this is copy from in class ex. -- look to change this?
+	MapItem*** map; // this is copy from in class ex. -- look to change this?
 	int mapWidth;
 	int mapHeight;
 
 	int char_x;
 	int char_y;
 
-	//MazeItem* constructItemForChar(char c);
+	MapItem* constructItemForChar(char c);
 public:
 	MazeMap(string* initialMap, int numLines);
 	~MazeMap();

@@ -33,6 +33,9 @@
     <ClCompile Include="MapItem.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="MapWall.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MapItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapWall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
