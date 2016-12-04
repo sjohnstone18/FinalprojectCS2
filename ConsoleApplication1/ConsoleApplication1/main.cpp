@@ -34,13 +34,13 @@ char _getch() {
 #endif
 
 int main() {
-	const int SIDE = 50; // change based on size of map in horizontal direction
+	const int SIDE = 40; // change based on size of map in horizontal direction
 	// map could have secret walls?
 
 	// certain areas of map have monsters
 	// Goblin symbol: -O-
 	// Dragon: <o>
-	
+
 	// items are scattered around the map
 	// ! = sword
 	// [] = shield
@@ -49,7 +49,7 @@ int main() {
 
 	string initializeMap[SIDE] =
 	{
-		            "WELCOME TO MERLOCK'S MANSION"
+					"WELCOME TO MERLOCK'S MANSION"
 		"--------------------------------------------------",
 		"|  #      |    |               |    |            |",
 		"|------   |          |-----|   |   --   |  |-----|",
@@ -74,18 +74,22 @@ int main() {
 	};
 
 	MazeMap* map = new MazeMap(initializeMap, SIDE);
-	//Render the current state of the maze
-	map->render();
 
-	//Get the users next move
-	char move = _getch();
+	bool done = false;
+	while (!done)
+	{
+		//Render the current state of the maze
+		map->render();
 
-	
-	// put key inputs here?
+		//Get the users next move
+		char move = _getch();
+
+
+		// put key inputs here?
 		if (move == 'w' || 'W') {
 
 			map->UpMove();
-	}
+		}
 		else if (move == 'a' || "A") {
 			map->LeftMove();
 		}
@@ -100,5 +104,13 @@ int main() {
 
 		else if (move == 'z' || "Z") {
 			//  quit the program
+			done = true;
 		}
+		map->updateItemPositions();
+	}
+
+	delete map;
+	return 0;
+
+
 }

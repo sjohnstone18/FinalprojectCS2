@@ -151,7 +151,6 @@
     <ClCompile Include="MapItem.cpp" />
     <ClCompile Include="MazeMap.cpp" />
     <ClCompile Include="npc.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>

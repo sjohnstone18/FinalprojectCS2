@@ -12,7 +12,7 @@ MazeMap::MazeMap(string* initialMaze, int numLines)
 
 	for (int i = 0; i < this->mapHeight; i++)
 	{
-		//this->maze[i] = new MazeItem*[this->mapWidth];
+		this->maze[i] = new MapItem*[this->mapWidth];
 		for (int j = 0; j < this->mapWidth; j++)
 		{
 			maze[i][j] = NULL;
@@ -88,7 +88,22 @@ void MazeMap::DownMove() {
 }
 
 void MazeMap::render() { // copied from Stephen-- we can improve this
-	
+	for (int i = 0; i < this->mapHeight; i++)
+	{
+		for (int j = 0; j < this->mapWidth; j++)
+		{
+			if (maze[i][j] != NULL)
+			{
+				maze[i][j]->render();
+			}
+			else
+			{
+				cout << " ";
+			}
+		}
+
+		cout << endl;
+	}
 }
 
 void MazeMap::updateItemPositions() { // copied from Stephen-- lets try to ammend this
