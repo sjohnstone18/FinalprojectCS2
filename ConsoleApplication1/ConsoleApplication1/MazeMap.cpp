@@ -109,14 +109,42 @@ void MazeMap::LeftMove() {
 }
 
 void MazeMap::RightMove() {
+	if (char_x > 0 && (map[char_y][char_x + 1] == NULL || map[char_y][char_x + 1]->passThru()))
+
+	{
+
+		MapItem* character = map[char_y][char_x];
+		map[char_y][char_x] = NULL;
+		char_x++;
+		map[char_y][char_x] = character;
+	}
 
 }
 
 void MazeMap::UpMove() {
+	if (char_x > 0 && (map[char_y-1][char_x] == NULL || map[char_y-1][char_x]->passThru()))
+
+	{
+
+		MapItem* character = map[char_y][char_x];
+		map[char_y][char_x] = NULL;
+		char_y--;
+		map[char_y][char_x] = character;
+	}
 
 }
 
 void MazeMap::DownMove() {
+	if (char_x > 0 && (map[char_y + 1][char_x] == NULL || map[char_y + 1][char_x]->passThru()))
+
+	{
+
+		MapItem* character = map[char_y][char_x];
+		map[char_y][char_x] = NULL;
+		char_y++;
+		map[char_y][char_x] = character;
+	}
+
 
 }
 

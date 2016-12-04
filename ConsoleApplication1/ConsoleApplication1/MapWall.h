@@ -12,6 +12,7 @@ private:
 public:
 	MapWall(bool horz);
 	virtual void render();
+	virtual bool passThru();
 };
 
 #endif /* MazeWall_hpp */

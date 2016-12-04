@@ -21,4 +21,8 @@ void MapWall::render()
 	}
 }
 
+bool MapWall::passThru() {
 
+	return false;
+
+}
