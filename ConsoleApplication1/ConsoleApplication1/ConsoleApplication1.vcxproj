@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="GroundItem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapItem.cpp" />
     <ClCompile Include="MapWall.cpp" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="GroundItem.h" />
     <ClInclude Include="MapItem.h" />
     <ClInclude Include="MapWall.h" />
     <ClInclude Include="MazeMap.h" />

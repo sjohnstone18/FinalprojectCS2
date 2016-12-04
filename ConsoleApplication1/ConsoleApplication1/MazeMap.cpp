@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "MapItem.h"
 #include "MapWall.h"
+#include "GroundItem.h"
 //#include "MazeWall"
 
 
@@ -87,7 +88,16 @@ MapItem* MazeMap::constructItemForChar(char c)
 	{
 		return new Character();
 	}
+	else if (c == '#')
+	{
+		return new GroundItem(1);
 
+	}
+	else if (c == '@')
+	{
+		return new GroundItem(2);
+
+	}
 	return NULL;
 				
 }
