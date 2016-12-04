@@ -45,7 +45,22 @@ MazeMap::MazeMap(string* initialMaze, int numLines)
 
 
 MazeMap::~MazeMap() {
+	{
+		//Delete the memory
+		for (int i = 0; i < this->mapHeight; i++)
+		{
+			for (int j = 0; j < this->mapWidth; j++)
+			{
+				if (maze[i][j] != NULL)
+				{
+					delete maze[i][j];
+				}
+			}
+			delete[] maze[i];
+		}
+		delete[] maze;
 
+	}
 }
 
 void MazeMap::LeftMove() {
