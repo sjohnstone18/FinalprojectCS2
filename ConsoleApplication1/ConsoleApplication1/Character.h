@@ -7,8 +7,10 @@
 
 class Character : public MapItem
 {
+
 public:
 	virtual void render();
+
 };
 
 /*

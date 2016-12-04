@@ -1,8 +1,10 @@
 #include <iostream>
 #include "Character.h"
+
 using namespace std;
 
-void Character::render() {
+void Character::render()
+{
 	cout << "#";
 }
 	
