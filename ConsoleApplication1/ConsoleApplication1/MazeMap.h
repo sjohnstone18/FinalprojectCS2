@@ -15,7 +15,7 @@ private:
 	int char_x;
 	int char_y;
 
-	//MazeItem* constructItemForChar(char c);
+	MapItem* constructItemForChar(char c);
 public:
 	MazeMap(string* initialMap, int numLines);
 	~MazeMap();
