@@ -99,19 +99,19 @@ int main()
         //update the characters position
         if (move == 'w')
         {
-            maze->moveUp();
+            maze->hero->moveUp(maze);
         }
         else if (move == 'a')
         {
-            maze->moveLeft();
+            maze->hero->moveLeft(maze);
         }
         else if (move == 's')
         {
-            maze->moveDown();
+            maze->hero->moveDown(maze);
         }
         else if (move == 'd')
         {
-            maze->moveRight();
+            maze->hero->moveRight(maze);
         }
         else if (move == 'q')
         {

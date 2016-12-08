@@ -7,6 +7,7 @@
 //
 
 #include "Ghost.hpp"
+#include "Maze.hpp"
 #include <iostream>
 #include <string>
 
@@ -47,4 +48,38 @@ int Ghost::getY()
 void Ghost::setY(int y)
 {
     this->y = y;
+}
+
+void Ghost::moveLeft(Maze* maze)
+{
+	if (maze->canmove(x-1, y))
+	{
+		this->setX(this->getX() - 1);
+		
+	}
+}
+void Ghost::moveRight(Maze* maze)
+{
+	if (maze->canmove(x+1, y))
+	{
+		this->setX(this->getX() + 1);
+		
+	}
+}
+
+void Ghost::moveUp(Maze* maze)
+{
+    if (maze->canmove(x, y-1))
+    {
+		this->setY(getY() - 1);
+       
+    }
+}
+
+void Ghost::moveDown(Maze* maze)
+{
+	if (maze->canmove(x, y+1)){
+		this->setY(getY() + 1);
+		
+	}
 }

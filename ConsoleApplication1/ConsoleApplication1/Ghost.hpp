@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "MazeItem.hpp"
+class Maze;
 
 class Ghost : public MazeItem
 {
@@ -18,6 +19,7 @@ private:
     int x;
     int y;
 public:
+	
     Ghost();
     virtual void render();
     virtual bool passThrough();
@@ -25,7 +27,11 @@ public:
     void setX(int x);
     int getY();
     void setY(int y);
-    
+	void moveLeft(Maze* maze);
+	void moveRight(Maze* maze);
+	void moveUp(Maze* maze);
+	void moveDown(Maze* maze);
+	
 };
 
 

@@ -22,14 +22,14 @@ class Maze {
 private:
     
     //Two dimensional array of MazeItems
-    MazeItem*** maze;
     
-    int mazeWidth;
+    
+    
     int mazeHeight;
-    
+    int mazeWidth;
     int char_x;
     int char_y;
-    Character* hero;
+   
     
     vector<Ghost*> moveableItems;
     
@@ -38,15 +38,12 @@ private:
     MazeItem* constructItemForChar(char c);
     
 public:
-    
+	MazeItem*** maze;
+	Ghost* ghosts;
+    Character* hero;
     Maze(string* initialMaze, int numLines);
     ~Maze();
-    
-    void moveLeft();
-    void moveRight();
-    void moveUp();
-    void moveDown();
-    
+	bool canmove(int x,int y);
     void render();
     
     void updateMovableItemPositions();

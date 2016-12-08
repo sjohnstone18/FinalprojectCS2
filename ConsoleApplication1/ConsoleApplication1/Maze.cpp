@@ -132,51 +132,13 @@ MazeItem* Maze::constructItemForChar(char c)
     
 }
 
-void Maze::moveLeft()
-{
-    if (this->hero->getX() > 0 &&
-        (maze[this->hero->getY()][this->hero->getX()-1] == NULL ||
-         maze[this->hero->getY()][this->hero->getX()-1]->passThrough()))
-    {
-		hero->setX(this->hero->getX() - 1);
-		hero->didMoveLeft();
-        heroDidMove();
-    }
-}
 
-void Maze::moveRight()
-{
-    if (this->hero->getX() < this->mazeWidth - 1  &&
-        (maze[this->hero->getY()][this->hero->getX()+1] == NULL ||
-         maze[this->hero->getY()][this->hero->getX()+1]->passThrough()))
-    {
-		hero->setX(this->hero->getX() + 1);
-        hero->didMoveRight();
-        heroDidMove();
-    }
-}
 
-void Maze::moveUp()
-{
-    if (this->hero->getY() > 0  &&
-        (maze[this->hero->getY()-1][this->hero->getX()] == NULL || maze[this->hero->getY() -1][this->hero->getX()]->passThrough()))
-    {
-		hero->setY(this->hero->getY() - 1);
-        hero->didMoveUp();
-        heroDidMove();
-    }
-}
 
-void Maze::moveDown()
-{
-    if (this->hero->getY() < this->mazeHeight - 1  &&
-        (maze[this->hero->getY()+1][this->hero->getX()] == NULL || maze[this->hero->getY() +1][this->hero->getX()]->passThrough()))
-    {
-		hero->setY(this->hero->getY() + 1);
-        hero->didMoveDown();
-        heroDidMove();
-    }
-}
+
+
+
+
 
 void Maze::heroDidMove()
 {
@@ -203,13 +165,11 @@ void Maze::updateMovableItemPositions()
 
 		// for ghosts that move randomly left to right
 		int dir = rand() % 2;
-        if (dir == 0 && g->getX() > 0 && // moves left
-            (maze[g->getY()][g->getX()-1] == NULL || maze[g->getY()][g->getX()-1]->passThrough())) // if space is empty or able to passThrough
+        if (dir == 0 && canmove(g->getX()-1, g->getY())) // if space is empty or able to passThrough
         {
             g->setX(g->getX()-1);
         }
-        else if (dir == 1 && g->getX() < this->mazeWidth-1 && // moves right
-            (maze[g->getY()][g->getX()+1] == NULL || maze[g->getY()][g->getX()+1]->passThrough()))
+        else if (dir == 1 &&canmove(g->getX()+1, g->getY()))
         {
             g->setX(g->getX()+1);
         }
@@ -275,4 +235,11 @@ void Maze::render()
     hero->renderInventory();
     cout << endl;
 
+}
+
+
+
+bool Maze::canmove(int x, int y) {
+
+	return x >= 0 && x<=mazeWidth-1 &&y>=0, y<= mazeHeight-1&& (maze[y][x]==NULL || maze[y][x] -> passThrough());
 }
