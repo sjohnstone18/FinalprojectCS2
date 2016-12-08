@@ -12,14 +12,22 @@
 
 using namespace std;
 
-bool MazeItem::passThru() {
-
-	return true;
-
-}
-
-
 void MazeItem::render()
 {
     cout << " ";
+}
+
+bool MazeItem::passThrough()
+{
+    return true;
+}
+
+bool MazeItem::pickUp()
+{
+    return false;
+}
+
+bool MazeItem::edible()
+{
+    return false;
 }

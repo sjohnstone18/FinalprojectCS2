@@ -15,57 +15,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Character.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="npc.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MazeMap.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MapItem.cpp">
+    <ClCompile Include="Character.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="MapWall.cpp">
+    <ClCompile Include="Flashlight.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="GroundItem.cpp">
+    <ClCompile Include="Ghost.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
+    <ClCompile Include="Maze.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MazeDot.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MazeItem.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MazeWall.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Character.h">
+    <ClInclude Include="Character.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Weapon.h">
+    <ClInclude Include="Flashlight.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="npc.h">
+    <ClInclude Include="Ghost.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MazeMap.h">
+    <ClInclude Include="Maze.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MapItem.h">
+    <ClInclude Include="MazeDot.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MapWall.h">
+    <ClInclude Include="MazeItem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GroundItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
+    <ClInclude Include="MazeWall.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
