@@ -39,6 +39,12 @@
     <ClCompile Include="MazeWall.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.hpp">
@@ -60,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MazeWall.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

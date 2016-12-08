@@ -62,6 +62,7 @@ void Character::addItemToInventory(MazeItem* item)
     inventory.push_back(item);
 }
 
+/*
 void Character::eatItem(MazeItem* item)
 {
     numItemsEaten++;
@@ -70,6 +71,7 @@ void Character::eatItem(MazeItem* item)
     //lets delete this here.
     delete item;
 }
+*/
 
 int Character::numberOfItemsEaten()
 {

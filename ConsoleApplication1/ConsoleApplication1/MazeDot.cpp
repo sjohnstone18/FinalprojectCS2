@@ -17,10 +17,10 @@ MazeDot::MazeDot()
     
 }
 
-void MazeDot::render()
-{
-    cout << ".";
-}
+//void MazeDot::render()
+//{
+ //   cout << ".";
+//}
 
 bool MazeDot::passThrough()
 {

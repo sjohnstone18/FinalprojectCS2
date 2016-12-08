@@ -22,6 +22,7 @@ private:
     
     vector<MazeItem*> inventory;
     int numItemsEaten;
+	int health;
 
 public:
     
@@ -31,7 +32,8 @@ public:
     virtual void render();
     
     void addItemToInventory(MazeItem* item);
-    void eatItem(MazeItem* item);
+    //void eatItem(MazeItem* item);
+	void charHealth(); // to track health of character?
     int numberOfItemsEaten();
     
     void renderInventory();

@@ -16,7 +16,7 @@ class MazeDot : public MazeItem
 {
 public:
     MazeDot();
-    virtual void render();
+    //virtual void render();
     virtual bool passThrough();
     virtual bool pickUp();
     virtual bool edible();

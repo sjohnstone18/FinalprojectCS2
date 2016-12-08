@@ -15,6 +15,8 @@
 //#include "Ghost.hpp"
 #include "MazeDot.hpp"
 #include "Flashlight.hpp"
+#include "Sword.hpp"
+#include "Shield.hpp"
 
 
 Maze::Maze(string* initialMaze, int numLines)
@@ -118,6 +120,14 @@ MazeItem* Maze::constructItemForChar(char c)
     {
         return new Flashlight();
     }
+	else if (c == '!') // sword
+	{
+		return new Sword();
+	}
+	else if (c == 'D') // shield
+	{
+		return new Shield();
+	}
     return new MazeDot();
     
 }
@@ -173,7 +183,7 @@ void Maze::heroDidMove()
     MazeItem* item = maze[this->hero->getY()][this->hero->getX()];
     if (item != NULL && item->edible())
     {
-        hero->eatItem(item);
+        //hero->eatItem(item);
         maze[this->hero->getY()][this->hero->getX()] = NULL;
     }
     else if (item != NULL && item->pickUp())
@@ -188,23 +198,29 @@ void Maze::updateMovableItemPositions()
     for (int i = 0; i < moveableItems.size(); i++)
     {
         Ghost* g = moveableItems.at(i);
-        int dir = rand()%4;
-        if (dir == 0 && g->getX() > 0 &&
-            (maze[g->getY()][g->getX()-1] == NULL || maze[g->getY()][g->getX()-1]->passThrough()))
+        
+		
+
+		// for ghosts that move randomly left to right
+		int dir = rand() % 2;
+        if (dir == 0 && g->getX() > 0 && // moves left
+            (maze[g->getY()][g->getX()-1] == NULL || maze[g->getY()][g->getX()-1]->passThrough())) // if space is empty or able to passThrough
         {
             g->setX(g->getX()-1);
         }
-        else if (dir == 1 && g->getX() < this->mazeWidth-1 &&
+        else if (dir == 1 && g->getX() < this->mazeWidth-1 && // moves right
             (maze[g->getY()][g->getX()+1] == NULL || maze[g->getY()][g->getX()+1]->passThrough()))
         {
             g->setX(g->getX()+1);
         }
-        else if (dir == 2 && g->getY() > 0 &&
+
+
+        else if (dir == 2 && g->getY() > 0 && // moves up
             (maze[g->getY()-1][g->getX()] == NULL || maze[g->getY()-1][g->getX()]->passThrough()))
         {
             g->setY(g->getY()-1);
         }
-        else if (dir == 3 && g->getY() < this->mazeHeight-1 &&
+        else if (dir == 3 && g->getY() < this->mazeHeight-1 && // moves down
                  (maze[g->getY()+1][g->getX()] == NULL || maze[g->getY()+1][g->getX()]->passThrough()))
         {
             g->setY(g->getY()+1);
@@ -253,7 +269,9 @@ void Maze::render()
     }
     
     cout << "Score: " << hero->numberOfItemsEaten() << endl;
-    cout << "Inventory: ";
+	cout << "Inventory: " << endl;
+	cout << "health: " << endl;
+		//eventually << hero->HeroHealth()
     hero->renderInventory();
     cout << endl;
 
