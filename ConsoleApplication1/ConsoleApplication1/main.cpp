@@ -45,7 +45,7 @@ char _getch() {
 #endif
 
 // Questions for Stephen:
-// 1.) Tips on designing health and combat
+// 1.) Tips on designing health and combat tracking
 // 2.) Deleting ghosts after they are killed
 // 3.) Creating maze exit?
 
@@ -56,6 +56,8 @@ int main()
 	
 	// ! = sword
 	// D = shield
+
+	// items that add health to character?
 
 	// object is to defeat all ghosts, collect all items and fight/kill the Boss to exit the maze
 
@@ -75,12 +77,12 @@ int main()
 		"|-------------|                            |--|  |",
 		"|     |    |         |---++----|      |      |   |",
 		"|     |    |  |   *  |         |  |-----|    |   |",
-		"|     |    |  |--|   |---------|  |     |        |",
-		"|--              |                |         -----|",
+		"|     |    |  |--|   |---------|  |     |V       |",
+		"|-- V            |                |         -----|",
 		"|         -------|---   -|         --|           |",
 		"|----|           ^       |----|      |   ----    |",
-		"|    |------|--------|        |------|   |  |    |",
-		"|           |        |        |          |       |",
+		"|    |------|--------|V       |------|   |  |    |",
+		"|           |        |        |          |     V |",
 		"|-++------  |   -----|     |      |----------|   |",
 		"|     |        ^           |------|              |",
 		"|-------|---   |-----  ----|      |--  -|--------|",

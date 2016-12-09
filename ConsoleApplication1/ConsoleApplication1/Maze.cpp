@@ -113,10 +113,14 @@ MazeItem* Maze::constructItemForChar(char c)
     {
 		return hero;
     }
-    else if (c == '^')
+    else if (c == '^')// all horizontal ghosts
     {
-        return new Ghost();
+        return new Ghost(0);
     }
+	else if (c == 'V') // all vertical ghosts
+	{
+		return new Ghost(1);
+	}
     else if (c == 'F')
     {
         return new Flashlight();

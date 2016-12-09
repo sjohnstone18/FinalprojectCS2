@@ -15,6 +15,7 @@
 #include "MazeItem.hpp"
 #include "Character.hpp"
 #include "Ghost.hpp"
+#include "moveableItem.hpp"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ private:
     int char_y;
    
     
-    vector<Ghost*> moveableItems;
+    vector<moveableItem*> moveableItems;
     
     void heroDidMove();
     

@@ -11,18 +11,25 @@
 
 #include <stdio.h>
 #include "MazeItem.hpp"
+#include "moveableItem.hpp"
 class Maze;
 
-class Ghost : public MazeItem
+const int randomHorizontal = 0;
+const int randomVertical = 1;
+
+class Ghost : public moveableItem
 {
 private:
+	int movement;
     int x;
     int y;
 public:
 	
-    Ghost();
+    Ghost(int movement);
     virtual void render();
     virtual bool passThrough();
+
+	/*
     int getX();
     void setX(int x);
     int getY();
@@ -32,7 +39,7 @@ public:
 	void moveUp(Maze* maze);
 	void moveDown(Maze* maze);
 	void attack();
-	
+	*/
 };
 
 

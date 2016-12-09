@@ -13,8 +13,9 @@
 
 using namespace std;
 
-Ghost::Ghost()
+Ghost::Ghost(int movement)
 {
+	this->movement = movement;
     x = 0;
     y = 0;
 }
@@ -29,7 +30,7 @@ bool Ghost::passThrough()
     return false;
 }
 
-
+/*
 int Ghost::getX()
 {
     return x;
@@ -83,3 +84,4 @@ void Ghost::moveDown(Maze* maze)
 		
 	}
 }
+*/

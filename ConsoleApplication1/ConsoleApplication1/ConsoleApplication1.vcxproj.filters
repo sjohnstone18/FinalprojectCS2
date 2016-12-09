@@ -48,6 +48,9 @@
     <ClCompile Include="Boss.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="moveableItem.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.hpp">
@@ -81,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Boss.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="moveableItem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

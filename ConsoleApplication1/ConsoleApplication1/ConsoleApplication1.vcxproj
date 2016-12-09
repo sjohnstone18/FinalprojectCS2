@@ -28,6 +28,7 @@
     <ClCompile Include="MazeDot.cpp" />
     <ClCompile Include="MazeItem.cpp" />
     <ClCompile Include="MazeWall.cpp" />
+    <ClCompile Include="moveableItem.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Sword.cpp" />
   </ItemGroup>
@@ -41,6 +42,7 @@
     <ClInclude Include="MazeDot.hpp" />
     <ClInclude Include="MazeItem.hpp" />
     <ClInclude Include="MazeWall.hpp" />
+    <ClInclude Include="moveableItem.hpp" />
     <ClInclude Include="Shield.hpp" />
     <ClInclude Include="Sword.hpp" />
   </ItemGroup>

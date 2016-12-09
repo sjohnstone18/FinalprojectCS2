@@ -13,9 +13,10 @@
 #include <vector>
 #include "MazeItem.hpp"
 #include "Ghost.hpp"
+#include "moveableItem.hpp"
 using namespace std;
 
-class Character : public Ghost
+class Character : public moveableItem
 {
 private:
     bool faceLeft;
