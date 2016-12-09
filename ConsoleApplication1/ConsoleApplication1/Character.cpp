@@ -91,4 +91,9 @@ void Character::renderInventory()
     }
 }
 
+void Character::renderHealth()
+{
+	// track health points to display to hero?
+}
+
 

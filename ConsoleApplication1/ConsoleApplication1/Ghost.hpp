@@ -31,6 +31,7 @@ public:
 	void moveRight(Maze* maze);
 	void moveUp(Maze* maze);
 	void moveDown(Maze* maze);
+	void attack();
 	
 };
 

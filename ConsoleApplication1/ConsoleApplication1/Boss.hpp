@@ -21,5 +21,6 @@ public:
 	void setX(int x);
 	int getY();
 	void setY(int y);
+	void attack(); // attack the character
 };
 #endif

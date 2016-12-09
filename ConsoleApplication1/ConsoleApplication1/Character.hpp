@@ -37,11 +37,14 @@ public:
     int numberOfItemsEaten();
     
     void renderInventory();
+	void renderHealth();
     
     void didMoveLeft();
     void didMoveRight();
     void didMoveUp();
     void didMoveDown();
+
+	void attack();
 };
 
 #endif /* Character_hpp */

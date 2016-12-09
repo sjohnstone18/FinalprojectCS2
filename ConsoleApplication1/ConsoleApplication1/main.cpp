@@ -42,7 +42,10 @@ char _getch() {
 }
 #endif
 
-
+// Questions for Stephen:
+// 1.) Tips on designing health and combat
+// 2.) Deleting ghosts after they are killed
+// 3.) Creating maze exit?
 
 int main()
 {
@@ -53,6 +56,10 @@ int main()
 	// D = shield
 
 	// object is to defeat all ghosts, collect all items and fight/kill the Boss to exit the maze
+
+	// Ghosts have 20 health each
+	// Character has 100 health
+	// Boss has 200 health
 
     string initialMaze[SIDE] =
     {
@@ -75,7 +82,7 @@ int main()
 		"|-++------  |   -----|     |      |----------|   |",
 		"|     |        ^           |------|              |",
 		"|-------|---   |-----  ----|      |--  -|--------|",
-		"|           !  |     D        |   |	    X     |", // 
+		"|           !  |     D        |   |	    X     |", // this will be the maze exit to beat the game
 		"--------------------------------------------------",
     };
     
