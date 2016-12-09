@@ -8,6 +8,8 @@
 #include "Character.hpp"
 #include "MazeWall.hpp"
 #include "Maze.hpp"
+#include "Boss.hpp"
+#include "Ghost.hpp"
 
 //Window users uncomment this
 #define WINDOWS
