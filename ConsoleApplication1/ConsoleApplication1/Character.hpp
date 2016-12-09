@@ -22,7 +22,7 @@ private:
     
     vector<MazeItem*> inventory;
     int numItemsEaten;
-	int health;
+	int health = 100;
 
 public:
     

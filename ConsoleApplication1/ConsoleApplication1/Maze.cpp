@@ -17,6 +17,7 @@
 #include "Flashlight.hpp"
 #include "Sword.hpp"
 #include "Shield.hpp"
+#include "Boss.hpp"
 
 
 Maze::Maze(string* initialMaze, int numLines)
@@ -127,6 +128,10 @@ MazeItem* Maze::constructItemForChar(char c)
 	else if (c == 'D') // shield
 	{
 		return new Shield();
+	}
+	else if (c == 'X') // Boss
+	{
+		return new Boss();
 	}
     return new MazeDot();
     

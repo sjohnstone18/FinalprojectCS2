@@ -13,7 +13,7 @@ public:
 	virtual void render();
 	virtual bool passThrough();
 	virtual bool pickUp();
-	virtual int hitPoints(); // sword damage
+	//virtual int hitPoints(); // sword damage
 };
 
 #endif

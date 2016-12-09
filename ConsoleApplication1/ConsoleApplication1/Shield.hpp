@@ -13,7 +13,7 @@ public:
 	virtual void render();
 	virtual bool passThrough();
 	virtual bool pickUp();
-	virtual int ProtectPoints();
+	//virtual int ProtectPoints();
 };
 
 #endif
