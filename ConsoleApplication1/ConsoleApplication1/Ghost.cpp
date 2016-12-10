@@ -13,49 +13,60 @@
 
 using namespace std;
 
+// Ghost constructor
 Ghost::Ghost(int movement)
 {
-	this->movement = movement;
+	this->movement = movement; // pointer setting passed in movement to variable movement
     x = 0;
     y = 0;
 }
 
+// renders the Ghost as a 9 displayed to user
 void Ghost::render()
 {
     cout << "9";
 }
 
+// checks if ghosts are passthroughable or not
 bool Ghost::passThrough()
 {
     return false;
 }
 
+// updates ghost positions for vertical and horizontal
 void Ghost::updatePosition(Maze* maze)
 {
 	int dir = rand() % 2;
-	if (movement == randomVertical) {
+	if (movement == randomVertical) { // adds 2 to rand value to only include vertical movement options
 		dir += 2;
 	}
+
+	// Ghost moves left
 	if (dir == 0 && maze->canmove(getX() - 1, getY())) // if space is empty or able to passThrough
 	{
 		setX(getX() - 1);
 	}
+
+	// Ghost moves right
 	else if (dir == 1 && maze->canmove(getX() + 1, getY()))
 	{
 		setX(getX() + 1);
 	}
 
-
+	// Ghost moves down
 	else if (dir == 2 && maze->canmove(getX(), getY() - 1))
 	{
 		setY(getY() - 1);
 	}
+
+	// Ghost moves up
 	else if (dir == 3 && maze->canmove(getX(), getY() + 1))
 	{
 		setY(getY() + 1);
 	}
 }
 
+// commented out code that now belongs in moveableItems
 /*
 int Ghost::getX()
 {

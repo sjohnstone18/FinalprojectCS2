@@ -22,8 +22,10 @@
 
 Maze::Maze(string* initialMaze, int numLines)
 {
+	// creates new character in the maze
 	this->hero = new Character();
 
+	// constructing the maze
 	this->mazeHeight = numLines;
     this->mazeWidth = (int)initialMaze[0].length();
     this->maze = new MazeItem**[numLines];
@@ -39,7 +41,6 @@ Maze::Maze(string* initialMaze, int numLines)
         }
     }
     
-	
     for (int i = 0; i < this->mazeHeight; i++)
     {
         string line = initialMaze[i];
@@ -52,31 +53,34 @@ Maze::Maze(string* initialMaze, int numLines)
             
             //Check if this is the character and if
             //it is then we need to track its position
-            if (item != NULL && typeid(*item) == typeid(Character))
+            if (item != NULL && typeid(*item) == typeid(Character)) // if type Character
             {
                 this->hero = dynamic_cast<Character*>(item);
-                this->hero->setX(j);
-                this->hero->setY(i);
+                this->hero->setX(j);// sets x val of Character location
+                this->hero->setY(i); // sets y val of Character location
             }
-            else if (item != NULL && typeid(*item) == typeid(Ghost))
+
+			// checks if this is the Ghost and tracks Ghost's position
+            else if (item != NULL && typeid(*item) == typeid(Ghost)) // if type Ghost
             {
                 Ghost* g = dynamic_cast<Ghost*>(item);
-                g->setY(i);
-                g->setX(j);
+                g->setY(i); // sets y val of location
+                g->setX(j); // sets x val of location
                 this->moveableItems.push_back(g);
             }
             else
             {
-                maze[i][j] = item;
+                maze[i][j] = item; // constructs item in maze array
             }
         }
     }
     
 }
 
+// Maze deconstructor
 Maze::~Maze()
 {
-    //Delete the memory
+    // Delete the memory
     for (int i = 0; i < this->mazeHeight; i++)
     {
         for (int j = 0; j < this->mazeWidth; j++)
@@ -93,89 +97,85 @@ Maze::~Maze()
 
 }
 
+// constructs different items in the maze based on char
 MazeItem* Maze::constructItemForChar(char c)
 {
-    if (c == '-')
+    if (c == '-') // constructs horiztonal maze walls
     {
         return new MazeWall(true);
     }
-    else if (c == '+')
+    else if (c == '+') // constructs hidden passageways
     {
+		// hides the ++ to the user
         MazeWall* wall = new MazeWall(true);
         wall->setPassage(true);
         return wall;
     }
-    else if (c == '|')
+    else if (c == '|') // constructs vertical maze walls
     {
         return new MazeWall(false);
     }
-    else if (c == '*')
+    else if (c == '*') // constructs the starting location of the character
     {
 		return hero;
     }
-    else if (c == '^')// all horizontal ghosts
+    else if (c == '^')// constructs all horizontal ghosts
     {
         return new Ghost(randomHorizontal);
     }
-	else if (c == 'V') // all vertical ghosts
+	else if (c == 'V') // constructs all vertical ghosts
 	{
 		return new Ghost(randomVertical);
 	}
+	// commented out flashlight...not used
+	/*
     else if (c == 'F')
     {
         return new Flashlight();
     }
-	else if (c == '!') // sword
+	*/
+	else if (c == '!') // constructs a sword item
 	{
 		return new Sword();
 	}
-	else if (c == 'D') // shield
+	else if (c == 'D') // constructs a shield item
 	{
 		return new Shield();
 	}
-	else if (c == 'X') // Boss
+	else if (c == 'X') // constructs a Boss
 	{
 		return new Boss();
 	}
-    return new MazeDot();
-    
+    return new MazeDot(); // constructs a mazedot...not used
 }
 
-
-
-
-
-
-
-
-
+// checks if the hero moved
 void Maze::heroDidMove()
 {
     MazeItem* item = maze[this->hero->getY()][this->hero->getX()];
-    if (item != NULL && item->edible())
+    if (item != NULL && item->edible()) // checks if item is not null and if it is classified as "edible"
     {
         //hero->eatItem(item);
-        maze[this->hero->getY()][this->hero->getX()] = NULL;
+        maze[this->hero->getY()][this->hero->getX()] = NULL; // removes item from maze
     }
-    else if (item != NULL && item->pickUp())
+    else if (item != NULL && item->pickUp()) // if the item is not null and the used picks it up
     {
-        hero->addItemToInventory(item);
-        maze[hero->getY()][hero->getX()] = NULL;
+        hero->addItemToInventory(item); // the item is added to inventory vector
+        maze[hero->getY()][hero->getX()] = NULL; // item is removed from the maze
     }
 }
 
+// updeates all "moveable items" based on their positions
 void Maze::updateMovableItemPositions()
 {
 	for (int i = 0; i < moveableItems.size(); i++)
 	{
 		moveableItem* g = moveableItems.at(i);
-		g->updatePosition(this);
-
-
-		// for ghosts that move randomly left to right
+		g->updatePosition(this); // pointer to updatePosition for item
 	}
 }
 
+// renders the maze for the user
 void Maze::render()
 {
     for (int i = 0; i < this->mazeHeight; i++)
@@ -216,17 +216,24 @@ void Maze::render()
         cout << endl;
     }
     
-    cout << "Score: " << hero->numberOfItemsEaten() << endl;
-	cout << "Inventory: " << endl;
-	cout << "health: " << endl;
-		//eventually << hero->HeroHealth()
-    hero->renderInventory();
+    //cout << "Score: " << hero->numberOfItemsEaten() << endl;
+	
+	// User Display:
+	cout << "Character health: " << endl; // displays current character health
+	//eventually << hero->HeroHealth() or something
+
+	cout << "Inventory: "; // displays current inventory
+	hero->renderInventory();
+		//eventually << hero->HeroHealth() or something
+
+    // cout << "Boss health: ?
+	// cout << "Combat level?
+
     cout << endl;
 
 }
 
-
-
+// determines if able to move to a space
 bool Maze::canmove(int x, int y) {
 
 	return x >= 0 && x<=mazeWidth-1 &&y>=0, y<= mazeHeight-1&& (maze[y][x]==NULL || maze[y][x] -> passThrough());

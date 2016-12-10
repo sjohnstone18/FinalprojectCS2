@@ -37,7 +37,6 @@
     <ClInclude Include="Character.hpp" />
     <ClInclude Include="Flashlight.hpp" />
     <ClInclude Include="Ghost.hpp" />
-    <ClInclude Include="ghostH.h" />
     <ClInclude Include="Maze.hpp" />
     <ClInclude Include="MazeDot.hpp" />
     <ClInclude Include="MazeItem.hpp" />

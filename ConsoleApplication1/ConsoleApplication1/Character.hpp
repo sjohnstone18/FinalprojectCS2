@@ -19,8 +19,9 @@ using namespace std;
 class Character : public moveableItem
 {
 private:
+	// data field
     bool faceLeft;
-    
+	bool faceRight;
     vector<MazeItem*> inventory;
     int numItemsEaten;
 	int health = 100;
@@ -40,12 +41,14 @@ public:
     void renderInventory();
 	void renderHealth();
     
+	int getHealth();
+
     void didMoveLeft();
     void didMoveRight();
     void didMoveUp();
     void didMoveDown();
 
-	void attack();
+	void attack(); // inflicting damage on the ghosts/boss
 };
 
 #endif /* Character_hpp */

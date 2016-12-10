@@ -21,17 +21,12 @@ using namespace std;
 
 class Maze {
 private:
-    
-    //Two dimensional array of MazeItems
-    
-    
-    
+	// data field
     int mazeHeight;
     int mazeWidth;
     int char_x;
     int char_y;
-   
-    
+
     vector<moveableItem*> moveableItems;
     
     void heroDidMove();
@@ -39,9 +34,12 @@ private:
     MazeItem* constructItemForChar(char c);
     
 public:
+	// data field
+	//Two dimensional array of MazeItems
 	MazeItem*** maze;
 	Ghost* ghosts;
     Character* hero;
+
     Maze(string* initialMaze, int numLines);
     ~Maze();
 	bool canmove(int x,int y);

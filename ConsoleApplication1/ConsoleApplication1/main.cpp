@@ -58,6 +58,7 @@ int main()
 	// D = shield
 
 	// items that add health to character?
+	// like food items?
 
 	// object is to defeat all ghosts, collect all items and fight/kill the Boss to exit the maze
 

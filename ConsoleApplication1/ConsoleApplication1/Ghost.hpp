@@ -14,13 +14,14 @@
 #include "moveableItem.hpp"
 class Maze;
 
-const int randomHorizontal = 0;
-const int randomVertical = 1;
+const int randomHorizontal = 0; // sets randomhorizontal ghosts to a value of 0
+const int randomVertical = 1; // sets randomvertical ghosts to a value of 1
 
-class Ghost : public moveableItem
+class Ghost : public moveableItem // Ghosts is a daughter of moveableItem
 {
 private:
 	int movement;
+
  
 public:
 	
@@ -28,8 +29,12 @@ public:
     virtual void render();
     virtual bool passThrough();
 	virtual void updatePosition(Maze*);
+
+	int getHealth();
+	void attack(); // attack the character?
 	
 
+	// commented code-- this now belongs in moveableItems
 	/*
     int getX();
     void setX(int x);

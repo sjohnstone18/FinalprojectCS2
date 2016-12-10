@@ -13,12 +13,14 @@
 
 using namespace std;
 
+// constructor for Character
 Character::Character()
 {
     faceLeft = true;
     numItemsEaten = 0;
 }
 
+// deconstructor for Character
 Character::~Character()
 {
     for (int i = 0; i < inventory.size(); i++)
@@ -28,6 +30,8 @@ Character::~Character()
     }
 }
 
+// renders the character depending on direction character is moving
+// ** do we still need this?
 void Character::render()
 {
     if (faceLeft)
@@ -40,29 +44,39 @@ void Character::render()
     }
 }
 
+// checks if the Character moved left
 void Character::didMoveLeft()
 {
     faceLeft = true;
 }
+
+// checks if the Character moved right
 void Character::didMoveRight()
 {
     faceLeft = false;
 }
+
+// 
 void Character::didMoveUp()
 {
     
 }
+
+//
 void Character::didMoveDown()
 {
     
 }
 
+// function that adds item to inventory vector
 void Character::addItemToInventory(MazeItem* item)
 {
     inventory.push_back(item);
 }
 
+
 /*
+// function that allows character to eat item
 void Character::eatItem(MazeItem* item)
 {
     numItemsEaten++;
@@ -73,14 +87,16 @@ void Character::eatItem(MazeItem* item)
 }
 */
 
+// counts the number of items eaten by the character
 int Character::numberOfItemsEaten()
 {
     return numItemsEaten;
 }
 
+// renders the inventory, displays to user in terminal window
 void Character::renderInventory()
 {
-    for (int i = 0; i < inventory.size(); i++)
+    for (int i = 0; i < inventory.size(); i++) // loops through inventory and checks for items
     {
         MazeItem* item = inventory.at(i);
         if (i > 0)
@@ -91,6 +107,7 @@ void Character::renderInventory()
     }
 }
 
+// renders health to the user in the terminal window?
 void Character::renderHealth()
 {
 	// track health points to display to hero?

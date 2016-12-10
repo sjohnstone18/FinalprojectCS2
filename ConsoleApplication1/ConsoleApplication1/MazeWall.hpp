@@ -15,6 +15,7 @@
 class MazeWall : public MazeItem
 {
 private:
+	// data field
     bool mHorizontal;
     bool mSecretPassage;
 public:

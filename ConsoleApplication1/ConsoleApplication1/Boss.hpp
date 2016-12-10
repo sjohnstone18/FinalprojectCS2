@@ -10,9 +10,10 @@ class Maze;
 class Boss : public MazeItem
 {
 private:
+	// data field
 	int x;
 	int y;
-	int health = 100;
+	int health;
 public:
 	Boss();
 	virtual void render();
@@ -22,5 +23,6 @@ public:
 	int getY();
 	void setY(int y);
 	void attack(); // attack the character
+	int getHealth(); // get health for the boss
 };
 #endif

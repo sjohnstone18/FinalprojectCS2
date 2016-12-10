@@ -15,9 +15,10 @@ using namespace std;
 MazeWall::MazeWall(bool horz)
 {
     mHorizontal = horz;
-    mSecretPassage = false;
+    mSecretPassage = false; // character not able to pass through walls 
 }
 
+// renders all of the maze walls 
 void MazeWall::render()
 {
     if (mHorizontal)
