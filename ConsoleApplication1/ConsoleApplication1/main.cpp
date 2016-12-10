@@ -47,7 +47,7 @@ char _getch() {
 // Questions for Stephen:
 // 1.) Tips on designing health and combat tracking
 // 2.) Deleting ghosts after they are killed
-// 3.) Creating maze exit?
+// ***3.) Creating maze exit?
 
 int main()
 {
