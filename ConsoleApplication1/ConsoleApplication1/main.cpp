@@ -66,7 +66,7 @@ int main()
 	// Character has 100 health
 	// Boss has 200 health
 
-    string initialMaze[SIDE] =
+    string initialMaze[SIDE] = // very long string of the intial maze 
     {
 		"--------------------------------------------------",
 		"|   !     |    |         ^     |    |            |",
@@ -93,7 +93,7 @@ int main()
     
     Maze* maze = new Maze(initialMaze, SIDE);
     
-    bool done = false;
+    bool done = false; // flag
     while (!done)
     {
         //Clear the old state of the maze
@@ -110,7 +110,7 @@ int main()
         //Get the users next move
         char move = _getch();
         
-        //update the characters position
+        //update the characters position based on user input
         if (move == 'w')
         {
             maze->hero->moveUp(maze);
@@ -135,7 +135,7 @@ int main()
         maze->updateMovableItemPositions();
     }
     
-
+	// delete maze for proper memory management
     delete maze;
 
     return 0;

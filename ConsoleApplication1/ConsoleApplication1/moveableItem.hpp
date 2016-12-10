@@ -8,13 +8,13 @@
 using namespace std;
 class Maze;
 
-class moveableItem : public MazeItem {
+class moveableItem : public MazeItem { // moveableItem is a subclass of the baseclass MazeItem
 protected:
+	// data field
 	int x;
 	int y;
 
 public:
-
 	int getX();
 	void setX(int x);
 	int getY();
