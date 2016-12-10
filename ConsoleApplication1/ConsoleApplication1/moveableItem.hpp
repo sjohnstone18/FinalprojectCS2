@@ -23,6 +23,7 @@ public:
 	void moveRight(Maze* maze);
 	void moveUp(Maze* maze);
 	void moveDown(Maze* maze);
+	virtual void updatePosition(Maze*);
 };
 
 #endif

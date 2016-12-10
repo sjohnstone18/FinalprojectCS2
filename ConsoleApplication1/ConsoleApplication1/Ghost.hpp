@@ -21,13 +21,14 @@ class Ghost : public moveableItem
 {
 private:
 	int movement;
-    int x;
-    int y;
+ 
 public:
 	
     Ghost(int movement);
     virtual void render();
     virtual bool passThrough();
+	virtual void updatePosition(Maze*);
+	
 
 	/*
     int getX();

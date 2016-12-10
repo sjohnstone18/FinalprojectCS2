@@ -30,6 +30,32 @@ bool Ghost::passThrough()
     return false;
 }
 
+void Ghost::updatePosition(Maze* maze)
+{
+	int dir = rand() % 2;
+	if (movement == randomVertical) {
+		dir += 2;
+	}
+	if (dir == 0 && maze->canmove(getX() - 1, getY())) // if space is empty or able to passThrough
+	{
+		setX(getX() - 1);
+	}
+	else if (dir == 1 && maze->canmove(getX() + 1, getY()))
+	{
+		setX(getX() + 1);
+	}
+
+
+	else if (dir == 2 && maze->canmove(getX(), getY() - 1))
+	{
+		setY(getY() - 1);
+	}
+	else if (dir == 3 && maze->canmove(getX(), getY() + 1))
+	{
+		setY(getY() + 1);
+	}
+}
+
 /*
 int Ghost::getX()
 {

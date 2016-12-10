@@ -115,11 +115,11 @@ MazeItem* Maze::constructItemForChar(char c)
     }
     else if (c == '^')// all horizontal ghosts
     {
-        return new Ghost(0);
+        return new Ghost(randomHorizontal);
     }
 	else if (c == 'V') // all vertical ghosts
 	{
-		return new Ghost(1);
+		return new Ghost(randomVertical);
 	}
     else if (c == 'F')
     {
@@ -166,35 +166,14 @@ void Maze::heroDidMove()
 
 void Maze::updateMovableItemPositions()
 {
-    for (int i = 0; i < moveableItems.size(); i++)
-    {
-        Ghost* g = moveableItems.at(i);
-        
-		
+	for (int i = 0; i < moveableItems.size(); i++)
+	{
+		moveableItem* g = moveableItems.at(i);
+		g->updatePosition(this);
+
 
 		// for ghosts that move randomly left to right
-		int dir = rand() % 2;
-        if (dir == 0 && canmove(g->getX()-1, g->getY())) // if space is empty or able to passThrough
-        {
-            g->setX(g->getX()-1);
-        }
-        else if (dir == 1 &&canmove(g->getX()+1, g->getY()))
-        {
-            g->setX(g->getX()+1);
-        }
-
-
-        else if (dir == 2 && g->getY() > 0 && // moves up
-            (maze[g->getY()-1][g->getX()] == NULL || maze[g->getY()-1][g->getX()]->passThrough()))
-        {
-            g->setY(g->getY()-1);
-        }
-        else if (dir == 3 && g->getY() < this->mazeHeight-1 && // moves down
-                 (maze[g->getY()+1][g->getX()] == NULL || maze[g->getY()+1][g->getX()]->passThrough()))
-        {
-            g->setY(g->getY()+1);
-        }
-    }
+	}
 }
 
 void Maze::render()
@@ -212,7 +191,7 @@ void Maze::render()
                 bool rendered = false;
                 for (int idx = 0; idx < moveableItems.size() && !rendered; idx++)
                 {
-                    Ghost* g = moveableItems.at(idx);
+                    moveableItem* g = moveableItems.at(idx);
                     if (g->getX() == j && g->getY() == i)
                     {
                         g->render();

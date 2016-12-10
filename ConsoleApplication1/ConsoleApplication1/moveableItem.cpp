@@ -52,3 +52,8 @@ void moveableItem::moveDown(Maze* maze)
 
 	}
 }
+
+void moveableItem::updatePosition(Maze*)
+{
+
+}
