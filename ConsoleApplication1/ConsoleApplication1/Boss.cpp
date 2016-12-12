@@ -48,3 +48,10 @@ void Boss::setY(int y)
 {
 	this->y = y;
 }
+/*
+// gets the boss' health
+int Boss::getHealth(int health) 
+{
+	// ?
+}
+*/

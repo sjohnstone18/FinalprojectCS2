@@ -41,7 +41,7 @@ public:
     void renderInventory();
 	void renderHealth();
     
-	int getHealth();
+	int getHealth(); // gets the current health of the character
 
     void didMoveLeft();
     void didMoveRight();

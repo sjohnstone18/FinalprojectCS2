@@ -30,7 +30,7 @@ public:
     virtual bool passThrough();
 	virtual void updatePosition(Maze*);
 
-	int getHealth();
+	int getHealth(); // gets the current health of the ghosts...wait all ghosts will have the same health..shoot
 	void attack(); // attack the character?
 	
 

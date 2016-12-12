@@ -66,6 +66,14 @@ void Ghost::updatePosition(Maze* maze)
 	}
 }
 
+/*
+// gets the current health of the ghost
+int Ghost::getHealth() 
+{
+	// ?
+}
+*/
+
 // commented out code that now belongs in moveableItems
 /*
 int Ghost::getX()
