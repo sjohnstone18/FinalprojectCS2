@@ -23,6 +23,6 @@ public:
 	int getY();
 	void setY(int y);
 	void attack(); // attack the character
-	int getHealth(int BHealth); // get health for the boss
+	int getHealth(); // get health for the boss
 };
 #endif

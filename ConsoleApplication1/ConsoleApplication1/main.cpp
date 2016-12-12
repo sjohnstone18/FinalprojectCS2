@@ -4,6 +4,8 @@
 #include <vector>
 #include <stack>
 #include <iomanip>
+
+// Header files
 #include "MazeItem.hpp"
 #include "Character.hpp"
 #include "MazeWall.hpp"
