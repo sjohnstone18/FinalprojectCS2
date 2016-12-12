@@ -7,6 +7,7 @@
 //
 
 #include "Character.hpp"
+#include "Maze.hpp"
 #include <iostream>
 #include <string>
 
@@ -119,5 +120,10 @@ int Character::getHealth()
 	return health;
 }
 
+void Character::attack(moveableItem* mazeItem, Maze* Maze)// inflicting damage on the ghosts/boss
+{
+	Maze->removeItem(mazeItem);
+	health -= mazeItem->getAttackValue();
+}
 
 

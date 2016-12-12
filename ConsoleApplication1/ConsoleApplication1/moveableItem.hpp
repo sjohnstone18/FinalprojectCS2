@@ -13,8 +13,11 @@ protected:
 	// data field
 	int x;
 	int y;
+	int attack;
+
 
 public:
+	moveableItem();
 	int getX();
 	void setX(int x);
 	int getY();
@@ -24,6 +27,7 @@ public:
 	void moveUp(Maze* maze);
 	void moveDown(Maze* maze);
 	virtual void updatePosition(Maze*);
+	virtual int getAttackValue();
 };
 
 #endif

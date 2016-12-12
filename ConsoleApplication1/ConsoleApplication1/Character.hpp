@@ -48,7 +48,7 @@ public:
     void didMoveUp();
     void didMoveDown();
 
-	void attack(); // inflicting damage on the ghosts/boss
+	void attack(moveableItem* mazeItem, Maze* Maze); // inflicting damage on the ghosts/boss
 };
 
 #endif /* Character_hpp */

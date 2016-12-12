@@ -46,6 +46,8 @@ public:
     void render();
     
     void updateMovableItemPositions();
+
+	void removeItem(moveableItem* Item);
 };
 
 #endif /* Maze_hpp */

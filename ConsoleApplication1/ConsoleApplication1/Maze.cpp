@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Maze.hpp"
 #include "MazeItem.hpp"
 #include "Character.hpp"
@@ -171,7 +172,18 @@ void Maze::updateMovableItemPositions()
 	for (int i = 0; i < moveableItems.size(); i++)
 	{
 		moveableItem* g = moveableItems.at(i);
+		
+		if (g->getX() == hero->getX() && g->getY() == hero->getY()) {
+			hero->attack(g, this);
+		}
+	}
+	for (int i = 0; i < moveableItems.size(); i++)
+	{
+		moveableItem* g = moveableItems.at(i);
 		g->updatePosition(this); // pointer to updatePosition for item
+		if (g->getX() == hero->getX() && g->getY() == hero->getY()) {
+			hero->attack(g, this);
+		}
 	}
 }
 
@@ -237,4 +249,12 @@ void Maze::render()
 bool Maze::canmove(int x, int y) {
 
 	return x >= 0 && x<=mazeWidth-1 &&y>=0, y<= mazeHeight-1&& (maze[y][x]==NULL || maze[y][x] -> passThrough());
+}
+
+void Maze::removeItem(moveableItem* Item) 
+{
+	auto it = std::find(moveableItems.begin(), moveableItems.end(), Item);
+	if (it != moveableItems.end()) {
+		moveableItems.erase(it);
+	}
 }

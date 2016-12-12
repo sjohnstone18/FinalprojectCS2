@@ -5,6 +5,11 @@
 using namespace std;
 class Maze;
 
+// constructor
+moveableItem::moveableItem()
+{
+	attack = 5;
+}
 // gets the x position of moveableItem
 int moveableItem::getX()
 {
@@ -72,4 +77,9 @@ void moveableItem::moveDown(Maze* maze)
 void moveableItem::updatePosition(Maze*)
 {
 
+}
+
+int moveableItem::getAttackValue()
+{
+	return attack;
 }
