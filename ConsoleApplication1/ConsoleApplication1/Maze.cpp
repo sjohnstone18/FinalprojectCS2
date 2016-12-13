@@ -196,6 +196,14 @@ void Maze::updateMovableItemPositions()
 			hero->attack(g, this);
 		}
 	}
+	MazeItem* item = maze[this->hero->getY()][this->hero->getX()];
+	if (item != NULL && item->pickUp()) // if the item is not null and the used picks it up
+	{
+		hero->addItemToInventory(item); // the item is added to inventory vector
+		maze[hero->getY()][hero->getX()] = NULL; // item is removed from the maze
+	}
+
+
 }
 
 // renders the maze for the user
