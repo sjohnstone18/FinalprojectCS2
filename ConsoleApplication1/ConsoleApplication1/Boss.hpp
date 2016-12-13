@@ -12,8 +12,8 @@ class Boss : public moveableItem
 {
 private:
 	// data field
-	int x;
-	int y;
+	//int x;
+	//int y;
 	int health;
 public:
 	Boss();

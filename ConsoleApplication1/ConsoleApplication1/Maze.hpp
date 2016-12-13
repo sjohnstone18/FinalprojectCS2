@@ -29,8 +29,9 @@ private:
     int char_y;
 
     vector<moveableItem*> moveableItems;
-	vector<moveableItem*> mazeItem;
-    
+	vector<MazeItem*> mazeItem;
+	//vector<Boss*> boss;
+
     void heroDidMove();
     
     MazeItem* constructItemForChar(char c);
