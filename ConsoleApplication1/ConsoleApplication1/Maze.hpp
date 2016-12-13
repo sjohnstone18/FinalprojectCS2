@@ -16,6 +16,7 @@
 #include "Character.hpp"
 #include "Ghost.hpp"
 #include "moveableItem.hpp"
+#include "Boss.hpp"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ private:
     int char_y;
 
     vector<moveableItem*> moveableItems;
+	vector<moveableItem*> mazeItem;
     
     void heroDidMove();
     
@@ -39,6 +41,7 @@ public:
 	MazeItem*** maze;
 	Ghost* ghosts;
     Character* hero;
+	Boss* boss;
 
     Maze(string* initialMaze, int numLines);
     ~Maze();

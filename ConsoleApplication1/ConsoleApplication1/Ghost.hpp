@@ -30,9 +30,9 @@ public:
     virtual bool passThrough();
 	virtual void updatePosition(Maze*);
 
+	// combat functions
 	int getHealth(); // gets the current health of the ghosts...wait all ghosts will have the same health..shoot
-	void attack(); // attack the character?
-	
+	void attack(moveableItem* Hero, Maze* Maze); // attack the character
 
 	// commented code-- this now belongs in moveableItems
 	/*

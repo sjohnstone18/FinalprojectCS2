@@ -1,5 +1,6 @@
 #include "Boss.hpp"
 #include "Maze.hpp"
+#include "moveableItem.hpp"
 #include <iostream>
 #include <string>
 
@@ -53,5 +54,11 @@ void Boss::setY(int y)
 int Boss::getHealth() 
 {
 	return health;
+}
+
+void Boss::attack(moveableItem* Hero, Maze* Maze) // attack the character
+{
+	Maze->removeItem(Hero);
+	health -= Hero->getAttackValue();
 }
 

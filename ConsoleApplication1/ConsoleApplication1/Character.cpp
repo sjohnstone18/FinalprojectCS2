@@ -122,8 +122,8 @@ int Character::getHealth()
 
 void Character::attack(moveableItem* mazeItem, Maze* Maze)// inflicting damage on the ghosts/boss
 {
-	Maze->removeItem(mazeItem);
-	health -= mazeItem->getAttackValue();
+	Maze->removeItem(mazeItem); // kills ghost
+	health -= mazeItem->getAttackValue(); // reduces health of character for each char attack
 }
 
 

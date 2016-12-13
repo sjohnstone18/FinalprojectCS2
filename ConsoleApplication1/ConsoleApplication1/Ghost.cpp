@@ -66,13 +66,19 @@ void Ghost::updatePosition(Maze* maze)
 	}
 }
 
-/*
+
 // gets the current health of the ghost
 int Ghost::getHealth() 
 {
-	// ?
+	return health;
 }
-*/
+
+// attack the character
+void Ghost::attack(moveableItem* Hero, Maze* Maze)
+{
+	Maze->removeItem(Hero);
+	health -= Hero->getAttackValue();
+}
 
 // commented out code that now belongs in moveableItems
 /*

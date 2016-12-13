@@ -5,9 +5,10 @@
 
 #include <stdio.h>
 #include "MazeItem.hpp"
+#include "Character.hpp"
 class Maze;
 
-class Boss : public MazeItem
+class Boss : public moveableItem
 {
 private:
 	// data field
@@ -22,7 +23,7 @@ public:
 	void setX(int x);
 	int getY();
 	void setY(int y);
-	void attack(); // attack the character
+	void attack(moveableItem* mazeItem, Maze* Maze); // attack the character
 	int getHealth(); // get health for the boss
 };
 #endif

@@ -69,6 +69,13 @@ Maze::Maze(string* initialMaze, int numLines)
                 g->setX(j); // sets x val of location
                 this->moveableItems.push_back(g);
             }
+			else if (item != NULL && typeid(*item) == typeid(Boss)) // if type Boss
+			{
+				Boss* b = dynamic_cast<Boss*>(item);
+				b->setY(i); // sets y val of location
+				b->setX(j); // sets x val of location
+				this->moveableItems.push_back(b);
+			}
             else
             {
                 maze[i][j] = item; // constructs item in maze array
@@ -172,9 +179,13 @@ void Maze::updateMovableItemPositions()
 	for (int i = 0; i < moveableItems.size(); i++)
 	{
 		moveableItem* g = moveableItems.at(i);
+		moveableItem* b = moveableItems.at(i);
 		
 		if (g->getX() == hero->getX() && g->getY() == hero->getY()) {
 			hero->attack(g, this);
+		}
+		if (b->getX() == hero->getX() && b->getY() == hero->getY()) {
+			hero->attack(b, this);
 		}
 	}
 	for (int i = 0; i < moveableItems.size(); i++)
@@ -253,6 +264,7 @@ bool Maze::canmove(int x, int y) {
 
 void Maze::removeItem(moveableItem* Item) 
 {
+	// deletes specific values in vector
 	auto it = std::find(moveableItems.begin(), moveableItems.end(), Item);
 	if (it != moveableItems.end()) {
 		moveableItems.erase(it);
