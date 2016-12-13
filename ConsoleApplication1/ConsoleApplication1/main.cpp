@@ -53,6 +53,19 @@ char _getch() {
 
 int main()
 {
+	string win1;
+
+	// FILE I/O
+	ofstream output;
+	// create file
+	output.open("WinMessage.txt");
+
+	// write to file
+	output << "You Win!" << endl;
+
+	// close file
+	output.close();
+
     srand(time(NULL));
     const int SIDE = 21;
 	
@@ -135,12 +148,22 @@ int main()
         }
         
         maze->updateMovableItemPositions();
+
+		// outputing "you win!"
+		// x = 45
+		// y = 19
+		if (maze->hero->getX() == 48 && maze->hero->getY() == 19) {
+			done = true;
+			system("cls");
+			ifstream win("WinMessage.txt");
+			while (getline(win, win1)) {
+				cout << win1 << endl;
+			}
+		}
     }
-    
+
 	// delete maze for proper memory management
     delete maze;
 
     return 0;
 }
-
-
