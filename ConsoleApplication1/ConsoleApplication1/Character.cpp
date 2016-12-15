@@ -22,8 +22,6 @@ using namespace std;
 // constructor for Character
 Character::Character()
 {
-    faceLeft = true;
-    numItemsEaten = 0;
 	health = 1000;
 	armor = 0;
 	this->setAttack(50);
@@ -75,11 +73,6 @@ void Character::addItemToInventory(MazeItem* item)
 	}
 }
 
-int Character::numberOfItemsEaten()
-{
-    return numItemsEaten;
-}
-
 // renders the inventory, displays to user in terminal window
 void Character::renderInventory()
 {
@@ -106,7 +99,8 @@ int Character::getHealth()
 	return health;
 }
 
-void Character::attack(moveableItem* mazeItem, Maze* Maze)// inflicting damage on the ghosts/boss
+// attacks moveableitems (such as ghosts and boss)
+void Character::attack(moveableItem* mazeItem, Maze* Maze)
 {
 	
 	health -= mazeItem->getAttackValue();
@@ -119,8 +113,8 @@ void Character::attack(moveableItem* mazeItem, Maze* Maze)// inflicting damage o
 	}
 }
 
+// gets the current armor value for the user
 int Character::getArmor() {
-
 	return armor;
 }
 
