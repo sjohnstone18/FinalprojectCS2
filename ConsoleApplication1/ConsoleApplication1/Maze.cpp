@@ -19,6 +19,7 @@
 #include "Sword.hpp"
 #include "Shield.hpp"
 #include "Boss.hpp"
+#include "Apple.hpp"
 
 
 Maze::Maze(string* initialMaze, int numLines)
@@ -153,6 +154,10 @@ MazeItem* Maze::constructItemForChar(char c)
 	else if (c == 'X') // constructs a Boss
 	{
 		return new Boss();
+	}
+	else if (c == 'O') // constructs an apple
+	{
+		return new Apple();
 	}
     return new MazeDot(); // constructs a mazedot...not used
 }

@@ -10,6 +10,7 @@
 #include "Maze.hpp"
 #include "Shield.hpp"
 #include "Sword.hpp"
+#include "Apple.hpp"
 #include <iostream>
 #include <string>
 
@@ -83,6 +84,9 @@ void Character::addItemToInventory(MazeItem* item)
 	}
 	else if (typeid(*item) == typeid(Sword)) {
 		this->setAttack(this->getAttackValue()+20);
+	}
+	else if (typeid(*item) == typeid(Apple)) {
+		this->health += 10;
 	}
 }
 
