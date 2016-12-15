@@ -163,11 +163,13 @@ int main()
 		// outputing "you win!"
 		// x = 45
 		// y = 19
+
+		// outputs you lose
 		if (maze->hero->getHealth() < 0)
 		{
 			done = true;
 			system("cls");
-			cout << "you lose" << endl;
+			cout << "you lose!" << endl;
 		}
 		if (maze->hero->getX() == 48 && maze->hero->getY() == 19) {
 			//if (true){

@@ -15,6 +15,8 @@
 #include "MazeWall.hpp"
 //#include "Ghost.hpp"
 #include "MazeDot.hpp"
+
+// Inventory Items
 #include "Flashlight.hpp"
 #include "Sword.hpp"
 #include "Shield.hpp"
