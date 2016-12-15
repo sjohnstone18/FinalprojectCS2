@@ -21,6 +21,7 @@
 #include "Boss.hpp"
 #include "Apple.hpp"
 #include "Grapes.hpp"
+#include "Candycane.hpp"
 
 
 Maze::Maze(string* initialMaze, int numLines)
@@ -163,6 +164,10 @@ MazeItem* Maze::constructItemForChar(char c)
 	else if (c == '%') // constructs an apple
 	{
 		return new Grapes();
+	}
+	else if (c == '?') // constructs a candycane
+	{
+		return new Candycane();
 	}
     return new MazeDot(); // constructs a mazedot...not used
 }
