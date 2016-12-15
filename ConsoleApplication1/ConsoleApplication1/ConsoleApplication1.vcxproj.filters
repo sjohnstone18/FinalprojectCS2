@@ -54,6 +54,9 @@
     <ClCompile Include="Apple.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Grapes.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.hpp">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Apple.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grapes.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
