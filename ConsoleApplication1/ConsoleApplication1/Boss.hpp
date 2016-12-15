@@ -10,11 +10,6 @@ class Maze;
 
 class Boss : public moveableItem
 {
-private:
-	// data field
-	//int x;
-	//int y;
-	//int health;
 public:
 	Boss();
 	virtual void render();

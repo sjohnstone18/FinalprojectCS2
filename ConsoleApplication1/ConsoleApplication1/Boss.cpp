@@ -15,7 +15,7 @@ Boss::Boss()
 	health = 30;
 }
 
-// renders the Boss to the user display
+// renders the Boss to the user display (X)
 void Boss::render()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);

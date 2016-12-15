@@ -46,8 +46,7 @@ public:
 
     void didMoveLeft();
     void didMoveRight();
-    void didMoveUp();
-    void didMoveDown();
+    
 
 	void attack(moveableItem* mazeItem, Maze* Maze); // inflicting damage on the ghosts/boss
 };
