@@ -24,9 +24,9 @@ private:
 
 public:
     Ghost(int movement);
-    virtual void render();
-    virtual bool passThrough();
-	virtual void updatePosition(Maze*);
+    void render();
+	bool passThrough();
+	void updatePosition(Maze*);
 
 
 	// combat functions

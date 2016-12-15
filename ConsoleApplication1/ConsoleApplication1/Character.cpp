@@ -87,11 +87,6 @@ void Character::renderInventory()
     }
 }
 
-// renders health to the user in the terminal window?
-void Character::renderHealth()
-{
-	// track health points to display to hero?
-}
 
 // gets the current health of the character
 int Character::getHealth()

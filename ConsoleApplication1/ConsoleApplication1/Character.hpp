@@ -27,11 +27,10 @@ public:
     Character();
     ~Character();
 	int getArmor();
-    virtual void render();
+    void render();
     void addItemToInventory(MazeItem* item);
 
     void renderInventory();
-	void renderHealth();
 	int getHealth();
 	void attack(moveableItem* mazeItem, Maze* Maze);
 };
