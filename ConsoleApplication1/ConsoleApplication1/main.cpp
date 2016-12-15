@@ -53,7 +53,7 @@ char _getch() {
 int main()
 {
 	// Where to display instructions?
-	
+	//
 	cout << "** Welcome to THE MAZE OF DOOM! **" << endl;
 	cout << endl;
 	cout << "Your objective is to navigate your character, Max (8), through THE MAZE OF DOOM, collect items, battle ghosts, and defeat the Demagorgin." << endl;
