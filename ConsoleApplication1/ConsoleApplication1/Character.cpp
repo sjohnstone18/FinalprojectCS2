@@ -24,9 +24,9 @@ Character::Character()
 {
     faceLeft = true;
     numItemsEaten = 0;
-	health = 100;
+	health = 1000;
 	armor = 0;
-	this->setAttack(20);
+	this->setAttack(50);
 }
 
 // deconstructor for Character
@@ -149,8 +149,8 @@ void Character::attack(moveableItem* mazeItem, Maze* Maze)// inflicting damage o
 	health -= mazeItem->getAttackValue();
 	health += armor;// reduces health of character for each char attack
 	mazeItem->health -= this->getAttackValue();
-	if (typeid(*mazeItem) == typeid(Ghost)) {
-		if (mazeItem->health < 0) {
+	if (typeid(*mazeItem) == typeid(Ghost) || typeid(*mazeItem) == typeid(Boss)) {
+		if (mazeItem->health <= 0) {
 			Maze->removeItem(mazeItem); // kills ghost
 		}
 	}

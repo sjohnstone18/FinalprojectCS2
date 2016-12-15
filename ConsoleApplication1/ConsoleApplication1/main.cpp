@@ -116,7 +116,7 @@ int main()
 		"|  ?        !  |     D        |   |	    X      ", // this will be the maze exit to beat the game
 		"--------------------------------------------------",
     };
-    
+    redo:
     Maze* maze = new Maze(initialMaze, SIDE);
     
     bool done = false; // flag
@@ -184,6 +184,10 @@ int main()
 
 	// delete maze for proper memory management
     delete maze;
-
+	cout << "do you want to play again?" << endl;
+	string feedback;
+	cin >> feedback;
+	if (feedback == "yes")
+		goto redo;
     return 0;
 }
