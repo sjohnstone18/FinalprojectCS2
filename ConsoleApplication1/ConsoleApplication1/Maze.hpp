@@ -22,13 +22,11 @@ private:
 	// data field
     int mazeHeight;
     int mazeWidth;
-    int char_x;
-    int char_y;
+   
 
     vector<moveableItem*> moveableItems;
-	vector<MazeItem*> mazeItem;
-	//vector<Boss*> boss;
-
+	//vector<MazeItem*> mazeItem;
+	
     void heroDidMove();
     
     MazeItem* constructItemForChar(char c);
