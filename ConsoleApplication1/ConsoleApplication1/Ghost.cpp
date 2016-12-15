@@ -20,6 +20,7 @@ Ghost::Ghost(int movement)
     x = 0;
     y = 0;
 	this->setAttack(5);
+	health = 10;
 }
 
 // renders the Ghost as a 9 displayed to user

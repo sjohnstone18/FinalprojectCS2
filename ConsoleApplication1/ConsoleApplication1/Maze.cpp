@@ -201,8 +201,9 @@ void Maze::updateMovableItemPositions()
 		if (g->getX() == hero->getX() && g->getY() == hero->getY()) {
 			hero->attack(g, this);
 		}
-		if (b->getX() == hero->getX() && b->getY() == hero->getY()) {
+		else if (b->getX() == hero->getX() && b->getY() == hero->getY()) {
 			hero->attack(b, this);
+			
 		}
 	}
 	for (int i = 0; i < moveableItems.size(); i++)
@@ -211,6 +212,7 @@ void Maze::updateMovableItemPositions()
 		g->updatePosition(this); // pointer to updatePosition for item
 		if (g->getX() == hero->getX() && g->getY() == hero->getY()) {
 			hero->attack(g, this);
+
 		}
 	}
 	MazeItem* item = maze[this->hero->getY()][this->hero->getX()];

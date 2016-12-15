@@ -24,7 +24,7 @@ private:
 	bool faceRight;
     vector<MazeItem*> inventory;
     int numItemsEaten;
-	int health = 100;
+	//int health = 100;
 	int armor;
 	
 public:

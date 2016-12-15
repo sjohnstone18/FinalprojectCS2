@@ -15,9 +15,11 @@ protected:
 	int y;
 private:
 	int attack;
+	
 
 
 public:
+	int health;
 	moveableItem();
 	int getX();
 	void setX(int x);
@@ -29,6 +31,7 @@ public:
 	void moveDown(Maze* maze);
 	virtual void updatePosition(Maze*);
 	virtual int getAttackValue();
+	virtual int getHealth();
 	void setAttack(int num);
 };
 

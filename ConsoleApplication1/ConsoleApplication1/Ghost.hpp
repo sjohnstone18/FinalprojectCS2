@@ -21,8 +21,8 @@ class Ghost : public moveableItem // Ghosts is a daughter of moveableItem
 {
 private:
 	int movement;
-	int health;
-	int attackv;
+	//int health;
+	//int attack;
  
 public:
 	

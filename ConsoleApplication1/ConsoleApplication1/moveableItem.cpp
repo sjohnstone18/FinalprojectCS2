@@ -87,3 +87,6 @@ void moveableItem::setAttack(int num)
 {
 	attack = num;
 }
+int moveableItem::getHealth() {
+	return health;
+}

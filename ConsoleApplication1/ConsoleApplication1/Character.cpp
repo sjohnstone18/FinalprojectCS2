@@ -141,9 +141,15 @@ int Character::getHealth()
 
 void Character::attack(moveableItem* mazeItem, Maze* Maze)// inflicting damage on the ghosts/boss
 {
-	Maze->removeItem(mazeItem); // kills ghost
+	
 	health -= mazeItem->getAttackValue();
 	health += armor;// reduces health of character for each char attack
+	mazeItem->health -= this->getAttackValue();
+	if (typeid(*mazeItem) == typeid(Ghost)) {
+		if (mazeItem->health < 0) {
+			Maze->removeItem(mazeItem); // kills ghost
+		}
+	}
 }
 
 int Character::getArmor() {
