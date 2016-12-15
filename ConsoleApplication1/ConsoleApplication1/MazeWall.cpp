@@ -12,10 +12,11 @@
 
 using namespace std;
 
+// mazeWall constructor
 MazeWall::MazeWall(bool horz)
 {
     mHorizontal = horz;
-    mSecretPassage = false; 
+    mSecretPassage = false;
 }
 
 // renders all of the maze walls to the user display
@@ -42,5 +43,3 @@ void MazeWall::setPassage(bool p)
 {
     mSecretPassage = p;
 }
-
-
