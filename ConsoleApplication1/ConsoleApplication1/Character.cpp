@@ -15,7 +15,7 @@
 #include "Candycane.hpp"
 #include <iostream>
 #include <string>
-
+#include <windows.h>
 
 using namespace std;
 
@@ -43,14 +43,10 @@ Character::~Character()
 // ** do we still need this?
 void Character::render()
 {
-    if (faceLeft)
-    {
-        cout << "8";
-    }
-    else
-    {
-        cout << "8";
-    }
+   
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+		cout << "8";
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
 
 // checks if the Character moved left
