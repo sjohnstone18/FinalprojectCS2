@@ -12,7 +12,7 @@
 #include "Maze.hpp"
 #include "Boss.hpp"
 #include "Ghost.hpp"
-
+#include <windows.h>
 //Window users uncomment this
 #define WINDOWS
 
@@ -53,6 +53,9 @@ char _getch() {
 
 int main()
 {
+	cout << "yoyoyo" << endl;
+	_getch();
+	
 	string win1;
 
 	// FILE I/O
