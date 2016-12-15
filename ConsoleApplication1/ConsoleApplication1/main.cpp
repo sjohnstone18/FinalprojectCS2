@@ -12,7 +12,7 @@
 #include "Maze.hpp"
 #include "Boss.hpp"
 #include "Ghost.hpp"
-#include <windows.h>
+
 //Window users uncomment this
 #define WINDOWS
 
@@ -52,6 +52,22 @@ char _getch() {
 
 int main()
 {
+	// Where to display instructions?
+	//
+	cout << "** Welcome to THE MAZE OF DOOM! **" << endl;
+	cout << endl;
+	cout << "Your objective is to navigate your character, Max (8), through THE MAZE OF DOOM, collect items, battle ghosts, and defeat the Demagorgin." << endl;
+	cout << endl;
+	cout << "Controls:" << endl;
+	cout << "a = move left" << endl;
+	cout << "d = move right" << endl;
+	cout << "w = move up" << endl;
+	cout << "s = move down" << endl;
+	cout << endl;
+	cout << "Press any key to enter...THE MAZE OF DOOM!" << endl;
+	
+	_getch();
+	
 	string win1;
 	
 	// FILE I/O
