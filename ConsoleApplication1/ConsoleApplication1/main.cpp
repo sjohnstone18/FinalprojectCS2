@@ -46,15 +46,30 @@ char _getch() {
 }
 #endif
 
-// Questions for Stephen:
-// 1.) Tips on designing health and combat tracking
-// 2.) Deleting ghosts after they are killed
-// ***3.) Creating maze exit?
+// To-Do's if time:
+// Adding color to the display
+// Ghosts, Character, Boss have different colors
 
 int main()
 {
+	// Where to display instructions?
+	
+	cout << "** Welcome to THE MAZE OF DOOM! **" << endl;
+	cout << endl;
+	cout << "Your objective is to navigate your character, Max (8), through THE MAZE OF DOOM, collect items, battle ghosts, and defeat the Demagorgin." << endl;
+	cout << endl;
+	cout << "Controls:" << endl;
+	cout << "a = move left" << endl;
+	cout << "d = move right" << endl;
+	cout << "w = move up" << endl;
+	cout << "s = move down" << endl;
+	cout << endl;
+	cout << "Press any key to enter...THE MAZE OF DOOM!" << endl;
+	
+	_getch();
+	
 	string win1;
-
+	
 	// FILE I/O
 	ofstream output;
 	// create file
@@ -72,7 +87,7 @@ int main()
 		"    | $$     | $$$$$$ / |  $$$$$$/    | $$/   \\  $$  /$$$$$$| $$ \\  $$ /$$ \n"
 		"    |__/     \\______/   \\______/     |__/     \__ /|______/|__/  \\__/|__/ \n" << endl;
 	
-		// Generated using 
+		// Generated using patorjk.com
 
 	// close file
 	output.close();
@@ -82,15 +97,14 @@ int main()
 	
 	// ! = sword
 	// D = shield
+	// ? = Candycane
+	// 8 = Character
+	// 9 = Ghosts
+	// X = Boss
+	// % = Grapes
+	// O = Apple
 
-	// items that add health to character?
-	// like food items?
-
-	// object is to defeat all ghosts, collect all items and fight/kill the Boss to exit the maze
-
-	// Ghosts have 20 health each
-	// Character has 100 health
-	// Boss has 200 health
+	// object is to defeat the boss and exit the maze
 
     string initialMaze[SIDE] = // very long string of the intial maze 
     {
