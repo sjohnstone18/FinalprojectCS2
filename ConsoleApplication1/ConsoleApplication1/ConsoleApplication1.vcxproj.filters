@@ -27,9 +27,6 @@
     <ClCompile Include="Maze.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="MazeDot.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="MazeItem.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
@@ -66,9 +63,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Maze.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MazeDot.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MazeItem.hpp">

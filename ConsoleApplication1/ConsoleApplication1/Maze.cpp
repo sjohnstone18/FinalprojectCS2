@@ -1,10 +1,6 @@
-//
-//  Maze.cpp
-//  MazeGrame
-//
 //  Created by Stephen Johnson on 11/28/16.
 //  Copyright © 2016 Glacier Peak Studios LLC. All rights reserved.
-//
+//  Repurposed by Sam and Ian on 12/15/16
 
 #include <iostream>
 #include <string>
@@ -13,7 +9,6 @@
 #include "MazeItem.hpp"
 #include "Character.hpp"
 #include "MazeWall.hpp"
-//#include "Ghost.hpp"
 #include "MazeDot.hpp"
 
 // Inventory Items
@@ -25,7 +20,7 @@
 #include "Grapes.hpp"
 #include "Candycane.hpp"
 
-
+// Maze constructor
 Maze::Maze(string* initialMaze, int numLines)
 {
 	// creates new character in the maze
@@ -35,9 +30,10 @@ Maze::Maze(string* initialMaze, int numLines)
 	this->mazeHeight = numLines;
     this->mazeWidth = (int)initialMaze[0].length();
     this->maze = new MazeItem**[numLines];
-    this->hero->setX(-8);
-	this->hero->setY(-6);
+    this->hero->setX(-8); // sets position of hero
+	this->hero->setY(-6); // sets position of hero
 
+	// constructs maze
     for (int i = 0; i < this->mazeHeight; i++)
     {
         this->maze[i] = new MazeItem*[this->mazeWidth];
@@ -140,13 +136,6 @@ MazeItem* Maze::constructItemForChar(char c)
 	{
 		return new Ghost(randomVertical);
 	}
-	// commented out flashlight...not used
-	/*
-    else if (c == 'F')
-    {
-        return new Flashlight();
-    }
-	*/
 	else if (c == '!') // constructs a sword item
 	{
 		return new Sword();
@@ -171,7 +160,7 @@ MazeItem* Maze::constructItemForChar(char c)
 	{
 		return new Candycane();
 	}
-    return new MazeDot(); // constructs a mazedot...not used
+	return 0;
 }
 
 // checks if the hero moved
@@ -195,9 +184,10 @@ void Maze::updateMovableItemPositions()
 {
 	for (int i = 0; i < moveableItems.size(); i++)
 	{
-		moveableItem* g = moveableItems.at(i);
-		moveableItem* b = moveableItems.at(i);
+		moveableItem* g = moveableItems.at(i); // ghost pointer at location i
+		moveableItem* b = moveableItems.at(i); // boss point at location i
 		
+		// 
 		if (g->getX() == hero->getX() && g->getY() == hero->getY()) {
 			hero->attack(g, this);
 			goto done;
