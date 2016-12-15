@@ -4,6 +4,7 @@
 #include <vector>
 #include <stack>
 #include <iomanip>
+#include <windows.h>
 
 // Header files
 #include "MazeItem.hpp"
@@ -12,6 +13,7 @@
 #include "Maze.hpp"
 #include "Boss.hpp"
 #include "Ghost.hpp"
+
 
 //Window users uncomment this
 #define WINDOWS
@@ -49,7 +51,8 @@ int main()
 	// Welcome screen to user/objective/controls
 	cout << "** Welcome to THE MAZE OF DOOM! **" << endl;
 	cout << endl;
-	cout << "Your objective is to navigate your character, Max (8), through THE MAZE OF DOOM, collect items, battle ghosts, and defeat the Demagorgin." << endl;
+	cout << "Your objective is to navigate your character, Max (8), through THE MAZE OF DOOM." << endl;
+	cout << "In order to defeat the Demogorgon and exit the maze, you must collect all combat items while avoiding ghosts." << endl;
 	cout << endl;
 	cout << "Controls:" << endl;
 	cout << "a = move left" << endl;
@@ -58,7 +61,17 @@ int main()
 	cout << "s = move down" << endl;
 	cout << "q = quit the game" << endl;
 	cout << endl;
-	cout << "Press any key to enter...THE MAZE OF DOOM!" << endl;
+	cout << "Items:" << endl;
+	cout << "! = sword" << endl;
+	cout << "D = shield" << endl;
+	cout << "? = candycane" << endl;
+	cout << "8 = Max" << endl;
+	cout << "9 = ghost" << endl;
+	cout << "X = Boss" << endl;
+	cout << "% = Grapes" << endl;
+	cout << "O = Apple" << endl;
+	cout << endl;
+	cout << "Press any key to enter THE MAZE OF DOOM!..." << endl;
 	_getch();
 	
 	// FILE I/O
