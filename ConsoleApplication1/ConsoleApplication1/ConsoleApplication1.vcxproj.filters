@@ -21,9 +21,6 @@
     <ClCompile Include="Character.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Flashlight.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="Ghost.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
@@ -63,9 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Flashlight.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Ghost.hpp">
