@@ -19,6 +19,7 @@ Ghost::Ghost(int movement)
 	this->movement = movement; // pointer setting passed in movement to variable movement
     x = 0;
     y = 0;
+	this->setAttack(5);
 }
 
 // renders the Ghost as a 9 displayed to user

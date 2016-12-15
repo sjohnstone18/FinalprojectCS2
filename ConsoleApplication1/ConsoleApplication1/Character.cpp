@@ -8,6 +8,8 @@
 
 #include "Character.hpp"
 #include "Maze.hpp"
+#include "Shield.hpp"
+#include "Sword.hpp"
 #include <iostream>
 #include <string>
 
@@ -19,6 +21,9 @@ Character::Character()
 {
     faceLeft = true;
     numItemsEaten = 0;
+	health = 100;
+	armor = 0;
+	this->setAttack(20);
 }
 
 // deconstructor for Character
@@ -73,6 +78,12 @@ void Character::didMoveDown()
 void Character::addItemToInventory(MazeItem* item)
 {
     inventory.push_back(item);
+	if (typeid(*item) == typeid(Shield)) {
+		this->armor += 3;
+	}
+	else if (typeid(*item) == typeid(Sword)) {
+		this->setAttack(this->getAttackValue()+20);
+	}
 }
 
 
@@ -123,7 +134,12 @@ int Character::getHealth()
 void Character::attack(moveableItem* mazeItem, Maze* Maze)// inflicting damage on the ghosts/boss
 {
 	Maze->removeItem(mazeItem); // kills ghost
-	health -= mazeItem->getAttackValue(); // reduces health of character for each char attack
+	health -= mazeItem->getAttackValue();
+	health += armor;// reduces health of character for each char attack
 }
 
+int Character::getArmor() {
+
+	return armor;
+}
 

@@ -250,9 +250,10 @@ void Maze::render()
     //cout << "Score: " << hero->numberOfItemsEaten() << endl;
 	
 	// User Display:
-	cout << "Character health: " << endl; // displays current character health
+	cout << "Character health: " << hero->getHealth() << endl; // displays current character health
 	//eventually << hero->HeroHealth() or something
-
+	cout << "Character Armor: " << hero->getArmor() << endl;
+	cout << "Character Attack: " << hero->getAttackValue() << endl;
 	cout << "Inventory: "; // displays current inventory
 	hero->renderInventory();
 		//eventually << hero->HeroHealth() or something

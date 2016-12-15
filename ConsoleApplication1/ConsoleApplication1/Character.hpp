@@ -24,13 +24,14 @@ private:
 	bool faceRight;
     vector<MazeItem*> inventory;
     int numItemsEaten;
-	int health;
-
+	int health = 100;
+	int armor;
+	
 public:
     
     Character();
     ~Character();
-    
+	int getArmor();
     virtual void render();
     
     void addItemToInventory(MazeItem* item);

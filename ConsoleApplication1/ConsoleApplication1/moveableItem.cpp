@@ -83,3 +83,7 @@ int moveableItem::getAttackValue()
 {
 	return attack;
 }
+void moveableItem::setAttack(int num)
+{
+	attack = num;
+}

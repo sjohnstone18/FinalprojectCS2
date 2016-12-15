@@ -11,7 +11,7 @@ Boss::Boss()
 {
 	x = 0;
 	y = 0;
-	
+	setAttack(0);
 }
 
 // renders the Boss to the user display
