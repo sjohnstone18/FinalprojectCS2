@@ -53,8 +53,6 @@ char _getch() {
 
 int main()
 {
-	cout << "yoyoyo" << endl;
-	_getch();
 	
 	string win1;
 
