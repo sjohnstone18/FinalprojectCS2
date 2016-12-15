@@ -3,7 +3,7 @@
 #include "moveableItem.hpp"
 #include <iostream>
 #include <string>
-
+#include <windows.h>
 using namespace std;
 
 // Boss constructor
@@ -18,7 +18,9 @@ Boss::Boss()
 // renders the Boss to the user display
 void Boss::render()
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
 	cout << "X";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
 
 // checks if the Boss is a "passThrough" obect (in this case no)

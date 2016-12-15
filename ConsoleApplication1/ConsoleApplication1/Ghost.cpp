@@ -10,6 +10,7 @@
 #include "Maze.hpp"
 #include <iostream>
 #include <string>
+#include <windows.h>
 
 using namespace std;
 
@@ -26,7 +27,9 @@ Ghost::Ghost(int movement)
 // renders the Ghost as a 9 displayed to user
 void Ghost::render()
 {
-    cout << "9";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+	cout << "9";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
 
 // checks if ghosts are passthroughable or not
