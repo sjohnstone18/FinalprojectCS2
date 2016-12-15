@@ -14,7 +14,7 @@ private:
 	// data field
 	//int x;
 	//int y;
-	int health;
+	//int health;
 public:
 	Boss();
 	virtual void render();
