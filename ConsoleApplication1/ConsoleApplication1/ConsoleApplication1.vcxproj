@@ -27,7 +27,6 @@
     <ClCompile Include="Grapes.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
-    <ClCompile Include="MazeDot.cpp" />
     <ClCompile Include="MazeItem.cpp" />
     <ClCompile Include="MazeWall.cpp" />
     <ClCompile Include="moveableItem.cpp" />
@@ -42,7 +41,6 @@
     <ClInclude Include="Ghost.hpp" />
     <ClInclude Include="Grapes.hpp" />
     <ClInclude Include="Maze.hpp" />
-    <ClInclude Include="MazeDot.hpp" />
     <ClInclude Include="MazeItem.hpp" />
     <ClInclude Include="MazeWall.hpp" />
     <ClInclude Include="moveableItem.hpp" />

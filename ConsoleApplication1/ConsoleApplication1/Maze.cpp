@@ -171,7 +171,7 @@ MazeItem* Maze::constructItemForChar(char c)
 	{
 		return new Candycane();
 	}
-    return new MazeDot(); // constructs a mazedot...not used
+	return 0;
 }
 
 // checks if the hero moved

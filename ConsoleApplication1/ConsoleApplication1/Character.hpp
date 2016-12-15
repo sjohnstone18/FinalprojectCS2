@@ -37,7 +37,7 @@ public:
     void addItemToInventory(MazeItem* item);
     //void eatItem(MazeItem* item);
 	
-    int numberOfItemsEaten();
+    //int numberOfItemsEaten();
     
     void renderInventory();
 	void renderHealth();

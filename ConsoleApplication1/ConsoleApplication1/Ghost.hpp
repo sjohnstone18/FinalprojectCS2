@@ -21,9 +21,7 @@ class Ghost : public moveableItem // Ghosts is a daughter of moveableItem
 {
 private:
 	int movement;
-	//int health;
-	//int attack;
- 
+	
 public:
 	
     Ghost(int movement);
@@ -35,18 +33,7 @@ public:
 	int getHealth(); // gets the current health of the ghosts...wait all ghosts will have the same health..shoot
 	void attack(moveableItem* Hero, Maze* Maze); // attack the character
 
-	// commented code-- this now belongs in moveableItems
-	/*
-    int getX();
-    void setX(int x);
-    int getY();
-    void setY(int y);
-	void moveLeft(Maze* maze);
-	void moveRight(Maze* maze);
-	void moveUp(Maze* maze);
-	void moveDown(Maze* maze);
-	void attack();
-	*/
+	
 };
 
 
