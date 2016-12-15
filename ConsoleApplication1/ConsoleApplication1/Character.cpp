@@ -12,6 +12,7 @@
 #include "Sword.hpp"
 #include "Apple.hpp"
 #include "Grapes.hpp"
+#include "Candycane.hpp"
 #include <iostream>
 #include <string>
 
@@ -90,6 +91,9 @@ void Character::addItemToInventory(MazeItem* item)
 		this->health += 5;
 	}
 	else if (typeid(*item) == typeid(Grapes)) {
+		this->health += 5;
+	}
+	else if (typeid(*item) == typeid(Candycane)) {
 		this->health += 5;
 	}
 }
