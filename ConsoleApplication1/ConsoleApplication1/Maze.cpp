@@ -1,10 +1,6 @@
-//
-//  Maze.cpp
-//  MazeGrame
-//
 //  Created by Stephen Johnson on 11/28/16.
 //  Copyright © 2016 Glacier Peak Studios LLC. All rights reserved.
-//
+//  Repurposed by Sam and Ian on 12/15/16
 
 #include <iostream>
 #include <string>
@@ -13,7 +9,6 @@
 #include "MazeItem.hpp"
 #include "Character.hpp"
 #include "MazeWall.hpp"
-//#include "Ghost.hpp"
 #include "MazeDot.hpp"
 
 // Inventory Items
@@ -25,7 +20,7 @@
 #include "Grapes.hpp"
 #include "Candycane.hpp"
 
-
+// Maze constructor
 Maze::Maze(string* initialMaze, int numLines)
 {
 	// creates new character in the maze
@@ -35,9 +30,10 @@ Maze::Maze(string* initialMaze, int numLines)
 	this->mazeHeight = numLines;
     this->mazeWidth = (int)initialMaze[0].length();
     this->maze = new MazeItem**[numLines];
-    this->hero->setX(-8);
-	this->hero->setY(-6);
+    this->hero->setX(-8); // sets position of hero
+	this->hero->setY(-6); // sets position of hero
 
+	// constructs maze
     for (int i = 0; i < this->mazeHeight; i++)
     {
         this->maze[i] = new MazeItem*[this->mazeWidth];
@@ -140,13 +136,6 @@ MazeItem* Maze::constructItemForChar(char c)
 	{
 		return new Ghost(randomVertical);
 	}
-	// commented out flashlight...not used
-	/*
-    else if (c == 'F')
-    {
-        return new Flashlight();
-    }
-	*/
 	else if (c == '!') // constructs a sword item
 	{
 		return new Sword();
@@ -195,27 +184,31 @@ void Maze::updateMovableItemPositions()
 {
 	for (int i = 0; i < moveableItems.size(); i++)
 	{
-		moveableItem* g = moveableItems.at(i);
-		moveableItem* b = moveableItems.at(i);
+		moveableItem* g = moveableItems.at(i); // ghost pointer at location i
+		moveableItem* b = moveableItems.at(i); // boss point at location i
 		
+		// if the hero and ghost occupy same space, hero attacks ghost (g)
 		if (g->getX() == hero->getX() && g->getY() == hero->getY()) {
 			hero->attack(g, this);
 			goto done;
 		}
+		// if boss and hero occupy same space, hero attacks boss (b)
 		else if (b->getX() == hero->getX() && b->getY() == hero->getY()) {
 			hero->attack(b, this);
 			goto done;
 		}
 	}
+
+	// accounts for if ghost "avoids" character
 	for (int i = 0; i < moveableItems.size(); i++)
 	{
 		moveableItem* g = moveableItems.at(i);
 		g->updatePosition(this); // pointer to updatePosition for item
 		if (g->getX() == hero->getX() && g->getY() == hero->getY()) {
 			hero->attack(g, this);
-			
 		}
 	}
+
 	done:
 	MazeItem* item = maze[this->hero->getY()][this->hero->getX()];
 	if (item != NULL && item->pickUp()) // if the item is not null and the used picks it up
@@ -268,30 +261,21 @@ void Maze::render()
         cout << endl;
     }
     
-    //cout << "Score: " << hero->numberOfItemsEaten() << endl;
-	
-	// User Display:
+	// User Display beneath maze:
 	cout << "Character health: " << hero->getHealth() << endl; // displays current character health
-	//eventually << hero->HeroHealth() or something
-	cout << "Character Armor: " << hero->getArmor() << endl;
-	cout << "Character Attack: " << hero->getAttackValue() << endl;
+	cout << "Character armor: " << hero->getArmor() << endl;
+	cout << "Character attack: " << hero->getAttackValue() << endl;
 	cout << "Inventory: "; // displays current inventory
 	hero->renderInventory();
-		//eventually << hero->HeroHealth() or something
-
-    // cout << "Boss health: ?
-	// cout << "Combat level?
-
     cout << endl;
-
 }
 
 // determines if able to move to a space
 bool Maze::canmove(int x, int y) {
-
 	return x >= 0 && x<=mazeWidth-1 &&y>=0, y<= mazeHeight-1&& (maze[y][x]==NULL || maze[y][x] -> passThrough());
 }
 
+// removes item if it is either killed or picked up
 void Maze::removeItem(moveableItem* Item) 
 {
 	// deletes specific values in vector

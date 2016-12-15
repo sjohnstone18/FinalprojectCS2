@@ -4,6 +4,7 @@
 #include <vector>
 #include <stack>
 #include <iomanip>
+#include <windows.h>
 
 // Header files
 #include "MazeItem.hpp"
@@ -13,12 +14,11 @@
 #include "Boss.hpp"
 #include "Ghost.hpp"
 
+
 //Window users uncomment this
 #define WINDOWS
 
-
 using namespace std;
-
 
 #ifdef WINDOWS
 #include <conio.h>
@@ -46,31 +46,36 @@ char _getch() {
 }
 #endif
 
-// To-Do's if time:
-// Adding color to the display
-// Ghosts, Character, Boss have different colors
-
 int main()
 {
-	// Where to display instructions?
-	//
+	// Welcome screen to user/objective/controls
 	cout << "** Welcome to THE MAZE OF DOOM! **" << endl;
 	cout << endl;
-	cout << "Your objective is to navigate your character, Max (8), through THE MAZE OF DOOM, collect items, battle ghosts, and defeat the Demagorgin." << endl;
+	cout << "Your objective is to navigate your character, Max (8), through THE MAZE OF DOOM." << endl;
+	cout << "In order to defeat the Demogorgon and exit the maze, you must collect all combat items while avoiding ghosts." << endl;
 	cout << endl;
 	cout << "Controls:" << endl;
 	cout << "a = move left" << endl;
 	cout << "d = move right" << endl;
 	cout << "w = move up" << endl;
 	cout << "s = move down" << endl;
+	cout << "q = quit the game" << endl;
 	cout << endl;
-	cout << "Press any key to enter...THE MAZE OF DOOM!" << endl;
-	
+	cout << "Items:" << endl;
+	cout << "! = sword" << endl;
+	cout << "D = shield" << endl;
+	cout << "? = candycane" << endl;
+	cout << "8 = Max" << endl;
+	cout << "9 = ghost" << endl;
+	cout << "X = Boss" << endl;
+	cout << "% = Grapes" << endl;
+	cout << "O = Apple" << endl;
+	cout << endl;
+	cout << "Press any key to enter THE MAZE OF DOOM!..." << endl;
 	_getch();
 	
-	string win1;
-	
 	// FILE I/O
+	string win1;
 	ofstream output;
 	// create file
 	output.open("WinMessage.txt");
@@ -127,10 +132,10 @@ int main()
 		"|-++------  |   -----|     |   O  |----------|   |",
 		"| O  %|        ^           |------| ?            |",
 		"|-------|---   |-----  ----|      |--  -|--------|",
-		"|  ?        !  |     D        |   |	    X      ", // this will be the maze exit to beat the game
+		"|  ?        !  |     D        |   |	    X      ",
 		"--------------------------------------------------",
     };
-    redo:
+    redo: // allows user to restart the game
     Maze* maze = new Maze(initialMaze, SIDE);
     
     bool done = false; // flag
@@ -151,32 +156,28 @@ int main()
         char move = _getch();
         
         //update the characters position based on user input
-        if (move == 'w')
+        if (move == 'w') // up move
         {
             maze->hero->moveUp(maze);
         }
-        else if (move == 'a')
+        else if (move == 'a') // left move
         {
             maze->hero->moveLeft(maze);
         }
-        else if (move == 's')
+        else if (move == 's') // down move
         {
             maze->hero->moveDown(maze);
         }
-        else if (move == 'd')
+        else if (move == 'd') // right move
         {
             maze->hero->moveRight(maze);
         }
-        else if (move == 'q')
+        else if (move == 'q') // quit
         {
             done = true;
         }
         
         maze->updateMovableItemPositions();
-
-		// outputing "you win!"
-		// x = 45
-		// y = 19
 
 		// outputs you lose
 		if (maze->hero->getHealth() < 0)
@@ -198,10 +199,12 @@ int main()
 
 	// delete maze for proper memory management
     delete maze;
-	cout << "do you want to play again?" << endl;
+
+	// allows user to restart the game
+	cout << "do you want to play again? (y/n)" << endl;
 	string feedback;
 	cin >> feedback;
-	if (feedback == "yes")
+	if (feedback == "y" || feedback == "Y")
 		goto redo;
     return 0;
 }

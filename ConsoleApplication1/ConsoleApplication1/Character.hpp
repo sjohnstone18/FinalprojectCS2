@@ -20,36 +20,20 @@ class Character : public moveableItem
 {
 private:
 	// data field
-    bool faceLeft;
-	bool faceRight;
-    vector<MazeItem*> inventory;
-    int numItemsEaten;
-	//int health = 100;
+	vector<MazeItem*> inventory;
 	int armor;
 	
 public:
-    
     Character();
     ~Character();
 	int getArmor();
     virtual void render();
-    
     void addItemToInventory(MazeItem* item);
-    //void eatItem(MazeItem* item);
-	
-    //int numberOfItemsEaten();
-    
+
     void renderInventory();
 	void renderHealth();
-    
-	int getHealth(); // gets the current health of the character
-
-    void didMoveLeft();
-    void didMoveRight();
-    void didMoveUp();
-    void didMoveDown();
-
-	void attack(moveableItem* mazeItem, Maze* Maze); // inflicting damage on the ghosts/boss
+	int getHealth();
+	void attack(moveableItem* mazeItem, Maze* Maze);
 };
 
 #endif /* Character_hpp */

@@ -22,8 +22,6 @@ using namespace std;
 // constructor for Character
 Character::Character()
 {
-    faceLeft = true;
-    numItemsEaten = 0;
 	health = 1000;
 	armor = 0;
 	this->setAttack(50);
@@ -39,8 +37,8 @@ Character::~Character()
     }
 }
 
-// renders the character depending on direction character is moving
-// ** do we still need this?
+// renders the character to the screen
+// sets color of character
 void Character::render()
 {
    
@@ -49,68 +47,30 @@ void Character::render()
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
 
-// checks if the Character moved left
-void Character::didMoveLeft()
-{
-    faceLeft = true;
-}
-
-// checks if the Character moved right
-void Character::didMoveRight()
-{
-    faceLeft = false;
-}
-
-// 
-void Character::didMoveUp()
-{
-    
-}
-
-//
-void Character::didMoveDown()
-{
-    
-}
-
 // function that adds item to inventory vector
 void Character::addItemToInventory(MazeItem* item)
 {
     inventory.push_back(item);
+	// if shield is in inventory, add to armor
 	if (typeid(*item) == typeid(Shield)) {
 		this->armor += 3;
 	}
+	// if sword is in inventory, add to attack value
 	else if (typeid(*item) == typeid(Sword)) {
 		this->setAttack(this->getAttackValue()+20);
 	}
+	// if apple is in inventory, add to health
 	else if (typeid(*item) == typeid(Apple)) {
 		this->health += 5;
 	}
+	// if grapes are in inventory, add to health
 	else if (typeid(*item) == typeid(Grapes)) {
 		this->health += 5;
 	}
+	// if candycane is in inventory, add to health
 	else if (typeid(*item) == typeid(Candycane)) {
 		this->health += 5;
 	}
-}
-
-
-/*
-// function that allows character to eat item
-void Character::eatItem(MazeItem* item)
-{
-    numItemsEaten++;
-    
-    //This really isn't very good, but since we are done with it
-    //lets delete this here.
-    delete item;
-}
-*/
-
-// counts the number of items eaten by the character
-int Character::numberOfItemsEaten()
-{
-    return numItemsEaten;
 }
 
 // renders the inventory, displays to user in terminal window
@@ -139,7 +99,8 @@ int Character::getHealth()
 	return health;
 }
 
-void Character::attack(moveableItem* mazeItem, Maze* Maze)// inflicting damage on the ghosts/boss
+// attacks moveableitems (such as ghosts and boss)
+void Character::attack(moveableItem* mazeItem, Maze* Maze)
 {
 	
 	health -= mazeItem->getAttackValue();
@@ -152,8 +113,8 @@ void Character::attack(moveableItem* mazeItem, Maze* Maze)// inflicting damage o
 	}
 }
 
+// gets the current armor value for the user
 int Character::getArmor() {
-
 	return armor;
 }
 

@@ -5,11 +5,13 @@
 using namespace std;
 class Maze;
 
-// constructor
+// constructor for moveableItem
 moveableItem::moveableItem()
 {
+	// default attack value of 5 for moveableitems in the maze
 	attack = 5;
 }
+
 // gets the x position of moveableItem
 int moveableItem::getX()
 {
@@ -73,20 +75,27 @@ void moveableItem::moveDown(Maze* maze)
 	}
 }
 
-// test
+
+// test for implementation
 void moveableItem::updatePosition(Maze*)
 {
 
 }
 
+// gets the attack value for a moveableItem
 int moveableItem::getAttackValue()
 {
 	return attack;
 }
+
+// sets the attack value for moveableItem
 void moveableItem::setAttack(int num)
 {
 	attack = num;
 }
-int moveableItem::getHealth() {
+
+// gets health value for moveableItem
+int moveableItem::getHealth()
+{
 	return health;
 }

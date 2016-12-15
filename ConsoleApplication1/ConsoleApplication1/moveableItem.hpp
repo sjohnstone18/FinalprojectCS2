@@ -8,18 +8,16 @@
 using namespace std;
 class Maze;
 
-class moveableItem : public MazeItem { // moveableItem is a subclass of the baseclass MazeItem
+class moveableItem : public MazeItem { // moveableItem is derived from MazeItem
 protected:
 	// data field
 	int x;
 	int y;
+
 private:
 	int attack;
 	
-
-
 public:
-	int health;
 	moveableItem();
 	int getX();
 	void setX(int x);
@@ -33,6 +31,7 @@ public:
 	virtual int getAttackValue();
 	virtual int getHealth();
 	void setAttack(int num);
+	int health;
 };
 
 #endif

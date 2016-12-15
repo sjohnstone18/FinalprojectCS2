@@ -4,7 +4,7 @@
 #define Apple_hpp
 
 #include <stdio.h>
-#include "MazeItem.hpp"
+#include "MazeItem.hpp" // apple is inherited from mazeItem
 
 class Apple : public MazeItem
 {
@@ -13,7 +13,6 @@ public:
 	virtual void render();
 	virtual bool passThrough();
 	virtual bool pickUp();
-	//virtual int ProtectPoints();
 };
 
 #endif
