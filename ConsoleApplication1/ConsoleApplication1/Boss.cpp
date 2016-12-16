@@ -1,6 +1,7 @@
 #include "Boss.hpp"
 #include "Maze.hpp"
 #include "moveableItem.hpp"
+
 #include <iostream>
 #include <string>
 #include <windows.h>
@@ -11,8 +12,8 @@ Boss::Boss()
 {
 	x = 0;
 	y = 0;
-	setAttack(20);
-	health = 30;
+	setAttack(25);
+	health = 45;
 }
 
 // renders the Boss to the user display (X)

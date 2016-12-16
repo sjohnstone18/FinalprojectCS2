@@ -19,9 +19,9 @@ using namespace std;
 // constructor for Character
 Character::Character()
 {
-	health = 1000;
+	health = 100;
 	armor = 0;
-	this->setAttack(50);
+	this->setAttack(5);
 }
 
 // deconstructor for Character
@@ -54,7 +54,7 @@ void Character::addItemToInventory(MazeItem* item)
 	}
 	// if sword is in inventory, add to attack value
 	else if (typeid(*item) == typeid(Sword)) {
-		this->setAttack(this->getAttackValue()+20);
+		this->setAttack(this->getAttackValue()+10);
 	}
 	// if apple is in inventory, add to health
 	else if (typeid(*item) == typeid(Apple)) {
